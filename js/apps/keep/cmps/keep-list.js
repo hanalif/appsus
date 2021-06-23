@@ -1,20 +1,25 @@
 import keepPreview from './keep-preview.js';
+import noteImg from './keep-items-cmps/note-img.js'
+
 
 export default {
-    props: ['keeps'],
+    props: ['notes'],
     template: `
-    <ul class="keep-list main-screen">
-        <li v-for="keep in keeps" :key="keep.id" class="keep-preview-container">
-            <keep-preview :keep="keep" @click.native="log(keep.id)" />
-            <div class="actions">
-                <button @click="remove(keep.id)">X</button>
-                <router-link :to="'/keep/'+keep.id">Details</router-link>
-                <router-link :to="'/keep/compose/'+keep.id">Edit</router-link>
-            </div>
-        </li>
-    </ul>
+    <div class="keep-list main-screen">
+    <component v-for="note in notes" :key="note.id"
+    :is="note.type" 
+    :data="note">
+    </component>
+    </div>
     `,
+    data(){
+        return {
+            
+        }
+    },
     components: {
-        keepPreview
+        keepPreview,
+        noteImg
+        
     }
 }
