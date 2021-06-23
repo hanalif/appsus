@@ -6,7 +6,8 @@ export default {
     <section class="keep-app main-layout main-screen">
     <keep-list 
     @saveNoteChanges="saveNoteChanges" 
-    @deleteNote="deleteNote" 
+    @deleteNote="deleteNote"
+    @updateNoteColor="updateNoteColor" 
     :notes="notesToShow">
     </keep-list>
     </section>
@@ -42,6 +43,21 @@ export default {
                         this.notes = notes;
                     })
             });
+        },
+        updateNoteColor(styleData){
+            let note = styleData.note;
+            if(!note.style){
+                note.style = '';
+             }
+             note.style = styleData.style;
+             keepService.save(note)
+             .then(()=>{
+                 keepService.query()
+                     .then(notes => { 
+                         this.notes = notes;
+                     })
+             })
+
         }
     },
     created(){

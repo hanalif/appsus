@@ -4,6 +4,7 @@ export default {
     <section class="action-btns">
     <button  @click="deleteNote">🚮</button>
     <button @click="editNote">📝</button>
+    <button @click="opencolorPalette">🎨</button>
     </section>
     `,
     methods: {
@@ -12,6 +13,9 @@ export default {
         },
         deleteNote(){
             this.$emit('deleteNote', this.data.id);
+        },
+        opencolorPalette(){
+            this.$emit('opencolorPalette', this.data.id)
         }
     }
 }

@@ -1,0 +1,12 @@
+
+
+.color-circle{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid black
+}
+
+.colors-container{
+    gap: 5px;
+}

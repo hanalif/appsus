@@ -1,10 +1,10 @@
 export default {
     props:['data'],
     template: `
-    <section>
+    <section class="note-img-edit">
         <input v-model="imgUrl" type="url" name="url" id="url"
-            placeholder="img URL">
-        <input v-model="imgTitle" type="text" placeholder="title">
+            :placeholder="data.info.url">
+        <input v-model="imgTitle" type="text" :placeholder="data.info.title">
         <button @click="saveChanges">✅</button>
         <button @click="closeEditor">X</button>
     </section>

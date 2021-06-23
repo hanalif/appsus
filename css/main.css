@@ -21,10 +21,13 @@
 /* keep */
 @import './apps/keep/cmps/keep-list.css';
 @import './apps/keep/cmps/notes/note-img.css';
+@import './apps/keep/cmps/notes/color-palette.css';
 /* mail preview */
 
 @import './apps/mail/cmps/email-preview.css';
 
 /* mail details */
 
-@import './apps/mail/pages/email-details.css'
+@import './apps/mail/pages/email-details.css';
+
+

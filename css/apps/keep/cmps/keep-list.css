@@ -1,3 +1,9 @@
+.notes-container{
+    gap: 10px;
+}
+
+
 .note-container{
     width: 400px;
+    background-color: #FBC6A4;
 }
