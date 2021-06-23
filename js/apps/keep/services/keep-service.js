@@ -18,7 +18,7 @@ function query() {
         .then(notes => {
             if (!notes.length || !notes) {
                 notes = gNotes
-                saveToStorage(KEEPS_KEY, notes)
+                utilService.saveToStorage(KEEPS_KEY, notes)
             }
             return notes
         });
@@ -46,8 +46,8 @@ function getById(noteId) {
 function _createNotes() {
     let notes = utilService.loadFromStorage(KEEPS_KEY);
     if (!notes || !notes.length) {
-        notes = notesList.getInitialnotes();
-        notes.push(_createNote());
+        notes = notesList.getInitialNotes();
+        // notes.push(_createNote());
         utilService.saveToStorage(KEEPS_KEY, notes);
     }
     return notes;

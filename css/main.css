@@ -16,4 +16,8 @@
 
 /* helpers */
 
-@import './basic/helpers.css'
+@import './basic/helpers.css';
+
+/* keep */
+@import './apps/keep/cmps/keep-list.css';
+@import './apps/keep/cmps/notes/note-img.css';

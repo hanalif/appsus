@@ -4,7 +4,11 @@ import {keepService} from "../services/keep-service.js"
 export default {
     template: `
     <section class="keep-app main-layout main-screen">
-    <keep-list :notes="notesToShow"></keep-list>
+    <keep-list 
+    @saveNoteChanges="saveNoteChanges" 
+    @deleteNote="deleteNote" 
+    :notes="notesToShow">
+    </keep-list>
     </section>
     `,
     data() {
@@ -19,6 +23,26 @@ export default {
             return this.notes
         }
 
+    },
+    methods: {
+        saveNoteChanges(note){
+            keepService.save(note)
+                .then(()=>{
+                    keepService.query()
+                        .then(notes => { 
+                            this.notes = notes;
+                        })
+                })
+        },
+        deleteNote(noteId){
+            keepService.remove(noteId)
+            .then(()=>{
+                keepService.query()
+                    .then(notes => { 
+                        this.notes = notes;
+                    })
+            });
+        }
     },
     created(){
         keepService.query()

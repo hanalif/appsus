@@ -1,10 +1,10 @@
 import { storageService } from "../../../services/async-storage-service.js";
 export const notesList = {
-    getInitialnotes
+   getInitialNotes
 }
 
 
-function getInitialnotes() {
+function getInitialNotes() {
     return [
         // {
         //     id: storageService.makeId(),
@@ -19,11 +19,10 @@ function getInitialnotes() {
             type: "noteImg",
             info: {
                 url: "./keep-img/children.jpg",
-                title: "Children"
-            },
-            style: {
+                title: "Children",
                 backgroundColor: "#00d"
-            }
+                
+            },
         },
         // {
         //     id: storageService.makeId(),
@@ -48,11 +47,9 @@ function getInitialnotes() {
             type: "noteImg",
             info: {
                 url: "./keep-img/laptop.jpg",
-                title: "Laptop"
-            },
-            style: {
+                title: "Laptop",
                 backgroundColor: "#00d"
-            }
+            },
         },
         // {
         //     id: storageService.makeId(),
