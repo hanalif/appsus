@@ -1,7 +1,21 @@
 import { storageService } from '../../../services/async-storage-service.js'
 
 const MAILS_KEY = 'mails';
-const gMails = _createMails();
+const gMails = [{
+        name: 'ben',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: false,
+        sentAt: 1551133930594
+    },
+    {
+        name: 'hana',
+        subject: 'helllo?',
+        body: 'lets do it!',
+        isRead: true,
+        sentAt: 1551133930594
+    }
+]
 
 export const mailService = {
     query,
@@ -12,7 +26,15 @@ export const mailService = {
 };
 
 function query() {
-    return storageService.query(MAILS_KEY);
+    return storageService.query(MAILS_KEY)
+        .then(mails => {
+            if (!mails.length || !mails) {
+                mails = gMails
+                saveToStorage(MAILS_KEY, gMails)
+            }
+            return mails
+        });
+
 }
 
 function remove(mailId) {
@@ -39,6 +61,14 @@ function getNextCarId(mailId) {
         })
 }
 
+function saveToStorage(key, val) {
+    localStorage.setItem(key, JSON.stringify(val))
+}
+
+function loadFromStorage(key) {
+    var val = localStorage.getItem(key)
+    return JSON.parse(val)
+}
 
 function _createMails() {
     let mails = utilService.loadFromStorage(MAILS_KEY);
