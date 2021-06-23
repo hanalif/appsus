@@ -1,8 +1,18 @@
 export default {
+    props:['data'],
     template: `
     <section class="note-txt">
-    <h2>Title</h2>
-    <p>free txt</p>
+    <h2>{{data.info.title}}</h2>
+    <p>{{data.info.freeTxt}}</p>
+    
     </section>
-    `
+    `,
+    data(){
+        return {
+            noteId: this.data.id
+        }
+    },
+    methods: {
+    },
+
 }

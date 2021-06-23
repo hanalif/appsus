@@ -6,14 +6,15 @@ export const notesList = {
 
 function getInitialNotes() {
     return [
-        // {
-        //     id: storageService.makeId(),
-        //     type: "noteTxt",
-        //     isPinned: true,
-        //     info: {
-        //         txt: "Fullstack Me Baby!"
-        //     }
-        // },
+        {
+            id: storageService.makeId(),
+            type: "noteTxt",
+            isPinned: true,
+            info: {
+                title: "Fullstack Me Baby!",
+                freeTxt: 'Free Text Here'
+            }
+        },
         {
             id: storageService.makeId(),
             type: "noteImg",
@@ -33,13 +34,14 @@ function getInitialNotes() {
         //         ]
         //     }
         // },
-        // {
-        //     id: storageService.makeId(),
-        //     type: "noteTxt",
-        //     info: {
-        //         txt: "Hello world!"
-        //     }
-        // },
+        {
+            id: storageService.makeId(),
+            type: "noteTxt",
+            info: {
+                title: "Fullstack Me Baby!",
+                freeTxt: 'Free Text Here'
+            }
+        },
         {
             id: storageService.makeId(),
             type: "noteImg",
@@ -47,21 +49,15 @@ function getInitialNotes() {
                 url: "https://www.nbn.org.il/wp-content/uploads/2019/04/h3.jpg",
                 title: "Laptop",
             },
-            style: {
-                    backgroundColor: "#00d"
-                    }
         },
-        // {
-        //     id: storageService.makeId(),
-        //     type: "noteVideo",
-        //     info: {
-        //         url: "https://www.youtube.com/watch?v=VugasBUoBdI",
-        //         title: "Dynamic Component"
-        //     },
-        //     style: {
-        //         backgroundColor: "#00d"
-        //     }
-        // },
+        {
+            id: storageService.makeId(),
+            type: "noteVideo",
+            info: {
+                url: "https://www.youtube.com/watch?v=GR8XEQTlvEw",
+                title: "Dynamic Component"
+            },
+        },
     ];
 
 }

@@ -1,13 +1,18 @@
 
 export default {
+    props:['data'],
     template: `
     <section class="note-todos">
-    <h2>title</h2>
-    <ul>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    </ul>
+    <img class="img-note" :src="data.info.url" alt="">
+    <h2>{{data.info.title}}</h2>
     </section>
-    `
+    `,
+    data(){
+        return {
+            noteId: this.data.id
+        }
+    },
+    methods: {
+    },
+
 }

@@ -1,7 +1,15 @@
-import keepPreview from './keep-preview.js';
+// cmps
 import noteImg from './keep-items-cmps/note-img.js';
-import actionBtns from './action-btns.js'
+import noteTxt from './keep-items-cmps/note-txt.js';
+import noteVideo from './keep-items-cmps/note-video.js';
+
+// cmps to edit
 import noteImgEdit from './keep-items-edit/note-img-edit.js';
+import noteTxtEdit from './keep-items-edit/note-txt-edit.js';
+import noteVideoEdit from './keep-items-edit/note-video-edit.js';
+
+
+import actionBtns from './action-btns.js'
 import colorPalette from './color-palette.js';
 
 
@@ -10,7 +18,7 @@ export default {
     props: ['notes'],
     template: `
     <div class="keep-list main-screen">
-        <div class="notes-container flex">
+        <div class="notes-container grid">
         <div class="add-note-container">
         </div>
             <div class="note-container"  
@@ -56,10 +64,13 @@ export default {
         }
     },
     components: {
-        keepPreview,
         noteImg,
+        noteTxt,
+        noteVideo,
         actionBtns,
         noteImgEdit,
+        noteTxtEdit,
+        noteVideoEdit,
         colorPalette
         
     },
