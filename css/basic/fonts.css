@@ -1,0 +1,8 @@
+@font-face {
+    font-family: abz-italic;
+    src: url(../fonts/ABeeZee-Italic.ttf);
+}
+
+body {
+    font-family: abz-italic;
+}

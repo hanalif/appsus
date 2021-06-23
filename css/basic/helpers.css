@@ -1,0 +1,39 @@
+/* flex */
+
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.content-center {
+    justify-content: center;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+
+/* grid */
+
+.grid {
+    display: grid;
+}
+
+
+/* list */
+
+.clean-list {
+    list-style: none;
+}
