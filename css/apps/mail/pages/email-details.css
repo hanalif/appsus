@@ -1,3 +1,12 @@
 .mail-details {
     color: black;
 }
+
+.sender {
+    color: gray;
+}
+
+.sent-name {
+    font-weight: bold;
+    color: black;
+}
