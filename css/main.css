@@ -16,4 +16,12 @@
 
 /* helpers */
 
-@import './basic/helpers.css'
+@import './basic/helpers.css';
+
+/* mail preview */
+
+@import './apps/mail/cmps/email-preview.css';
+
+/* mail details */
+
+@import './apps/mail/pages/email-details.css'

@@ -1,3 +1,14 @@
 .mail-preview {
     color: black;
+    border: 1px solid black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mail-body {
+    color: gray;
+}
+
+.opened {
+    font-weight: normal;
 }

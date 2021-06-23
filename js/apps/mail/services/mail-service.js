@@ -3,17 +3,30 @@ import { storageService } from '../../../services/async-storage-service.js'
 const MAILS_KEY = 'mails';
 const gMails = [{
         name: 'ben',
+        mailFrom: 'benitzhak72@gmail.com',
         subject: 'Wassap?',
         body: 'Pick up!',
         isRead: false,
-        sentAt: 1551133930594
+        sentAt: 1551133930594,
+        id: 2233
     },
     {
-        name: 'hana',
+        name: 'ben',
+        mailFrom: 'benitzhak72@gmail.com',
         subject: 'helllo?',
         body: 'lets do it!',
-        isRead: true,
-        sentAt: 1551133930594
+        isRead: false,
+        sentAt: 1551133930594,
+        id: 2243
+    },
+    {
+        name: 'ben',
+        mailFrom: 'benitzhak72@gmail.com',
+        subject: 'tody',
+        body: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolore. Voluptatem porro illum sapiente saepe odit rerum, ad nesciunt debitis voluptatum doloremque, quasi sequi exercitationem! Facilis praesentium at illum quidem.',
+        isRead: false,
+        sentAt: 1551133930594,
+        id: 2293
     }
 ]
 
@@ -22,7 +35,8 @@ export const mailService = {
     remove,
     save,
     getById,
-    getNextCarId
+    getNextMailId,
+    getPrevMailId
 };
 
 function query() {
@@ -53,11 +67,19 @@ function getById(mailId) {
     return storageService.get(MAILS_KEY, mailId);
 }
 
-function getNextCarId(mailId) {
+function getNextMailId(mailId) {
     return query()
         .then(mails => {
             const idx = mails.findIndex(mail => mail.id === mailId)
             return (idx === mails.length - 1) ? mails[0].id : mails[idx + 1].id
+        })
+}
+
+function getPrevMailId(mailId) {
+    return query()
+        .then(mails => {
+            const idx = mails.findIndex(mail => mail.id === mailId)
+            return (idx === 0) ? mails[mails.length - 1].id : mails[idx - 1].id
         })
 }
 

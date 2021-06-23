@@ -1,9 +1,9 @@
 export default {
     props: ['txt'],
     template: `
-    <section>
+    <section class="flex">
     <p>{{getTextForDisplay}}</p>
-    <button v-if="showBtn"  @click="isLong = !isLong">{{setBtnTxt}}</button>
+    <p v-if="showBtn" >...</p>
     </section>
     `,
     data() {
@@ -13,18 +13,18 @@ export default {
     },
     methods: {
         setLong() {
-            return this.txt.length > 100
+            return this.txt.length > 20
         },
 
 
     },
     computed: {
         getTextForDisplay() {
-            if (this.isLong) return this.txt.substring(0, 100);
+            if (this.isLong) return this.txt.substring(0, 20);
             else return this.txt
         },
         showBtn() {
-            return this.txt.length > 100
+            return this.txt.length > 20
         },
         setBtnTxt() {
             if (this.isLong) return 'read more'
