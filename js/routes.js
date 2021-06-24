@@ -2,6 +2,7 @@ import homePage from './pages/home-page.js';
 import keepApp from './apps/keep/pages/keep-app.js';
 import mailApp from './apps/mail/pages/mail-app.js';
 import mailDetails from './apps/mail/pages/mail-details.js';
+import mailCompose from './apps/mail/cmps/mail-compose.js'
 
 
 const routes = [{
@@ -17,9 +18,13 @@ const routes = [{
         component: mailApp
     },
     {
+        path: '/mail/edit/:mailId?',
+        component: mailCompose
+    },
+    {
         path: '/mail/:mailId',
         component: mailDetails
-    },
+    }
 
 ];
 

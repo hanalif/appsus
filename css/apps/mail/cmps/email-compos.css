@@ -1,3 +1,22 @@
 .mail-compose {
     color: black;
 }
+
+.compose-mail {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.compose-body {
+    padding-bottom: 40%;
+    border: none;
+}
+
+.compose-btn {
+    width: 100px;
+}

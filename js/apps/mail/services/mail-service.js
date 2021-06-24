@@ -1,4 +1,5 @@
-import { storageService } from '../../../services/async-storage-service.js'
+import { storageService } from '../../../services/async-storage-service.js';
+import { utilService } from '../../../services/utills-service.js';
 
 const MAILS_KEY = 'mails';
 const gMails = [{
@@ -8,7 +9,7 @@ const gMails = [{
         body: 'Pick up!',
         isRead: false,
         sentAt: 1551133930594,
-        id: 2233
+        id: '2233'
     },
     {
         name: 'ben',
@@ -17,7 +18,7 @@ const gMails = [{
         body: 'lets do it!',
         isRead: false,
         sentAt: 1551133930594,
-        id: 2243
+        id: '2243'
     },
     {
         name: 'ben',
@@ -26,7 +27,7 @@ const gMails = [{
         body: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolore. Voluptatem porro illum sapiente saepe odit rerum, ad nesciunt debitis voluptatum doloremque, quasi sequi exercitationem! Facilis praesentium at illum quidem.',
         isRead: false,
         sentAt: 1551133930594,
-        id: 2293
+        id: '2293'
     }
 ]
 
@@ -36,7 +37,8 @@ export const mailService = {
     save,
     getById,
     getNextMailId,
-    getPrevMailId
+    getPrevMailId,
+    addNewMail
 };
 
 function query() {
@@ -57,10 +59,42 @@ function remove(mailId) {
 
 function save(mail) {
     if (mail.id) {
-        return storageService.put(MAILS_KEY, mail);
+        console.log('~ mail', mail)
+        var newMail = editMail(mail)
+        return storageService.put(MAILS_KEY, newMail);
     } else {
-        return storageService.post(MAILS_KEY, mail);
+        return addNewMail(mail);
     }
+}
+
+function editMail(mail) {
+    const editMail = {
+        name: 'ben',
+        mailFrom: 'benitzhak72@gmail.com',
+        subject: mail.subject,
+        body: mail.body,
+        isRead: mail.isRead,
+        sentAt: mail.sentAt || Date.now(),
+        id: mail.id
+    }
+    return editMail
+}
+
+function addNewMail(mail) {
+    const newMail = {
+        name: 'ben',
+        mailFrom: 'benitzhak72@gmail.com',
+        subject: mail.subject,
+        body: mail.body,
+        isRead: false,
+        sentAt: Date.now(),
+        id: utilService.makeId()
+    }
+    return query()
+        .then(mails => {
+            mails.push(newMail)
+            return saveToStorage(MAILS_KEY, mails)
+        })
 }
 
 function getById(mailId) {

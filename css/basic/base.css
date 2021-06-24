@@ -28,9 +28,9 @@ a:hover {
     box-sizing: border-box;
 }
 
-/* .main-screen {
+.main-screen {
     height: 90vh;
-} */
+}
 
 .main-layout {
     max-width: 80%;

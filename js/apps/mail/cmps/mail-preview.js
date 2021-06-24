@@ -6,10 +6,10 @@ export default {
     <router-link :to="'/mail/'+mail.id" >
     <div class="mail-preview flex space-between" :class="{opened: mail.isRead}">
         <p>{{mail.name}}</p>
-        <span class="mail-txt flex">
+        <div class="mail-txt flex">
         <p>{{mail.subject}}</p>
         <p class="mail-body flex">-<long-text :txt="mail.body"/></p>
-        </span>
+        </div>
         <p>{{timeForDisplay}}</p>
         </div>
         </router-link>
