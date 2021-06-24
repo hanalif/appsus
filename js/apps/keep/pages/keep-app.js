@@ -1,11 +1,12 @@
 import keepList from "../cmps/keep-list.js"
 import {keepService} from "../services/keep-service.js"
 import noteAdd from '../cmps/note-add.js';
+import notesFilter from "../cmps/keep-items-cmps/notes-filter.js";
 
 export default {
     template: `
     <section class="keep-app main-layout main-screen">
-        <notes-filter></notes-filter>
+        <notes-filter @filtered="setFilter"></notes-filter>
         <div class="note-add-container">
             <note-add @createNote="createNote"></note-add>
         </div>
@@ -26,7 +27,12 @@ export default {
     },
     computed: {
         notesToShow(){
-            return this.notes
+            if (!this.filterBy) return this.notes;
+            const searchStr = this.filterBy.title.toLowerCase();
+            const notesToShow = this.notes.filter(note => {
+                return note.info.title.toLowerCase().includes(searchStr);
+            });
+            return notesToShow;
         }
 
     },
@@ -73,6 +79,10 @@ export default {
                             this.notes = notes;
                         })
                 })
+        },
+        setFilter(filterBy){
+            this.filterBy = filterBy;
+           
         }
     },
     created(){
@@ -81,6 +91,7 @@ export default {
     },
     components: {
         keepList,
-        noteAdd
+        noteAdd,
+        notesFilter
     }
 }
