@@ -1,7 +1,7 @@
 import colorPalette from './color-palette.js'
 export default {
     template: `
-    <section class="input-for-new-note" :style=" {'background-color': style}">
+    <section class="input-for-new-note flex" :style=" {'background-color': style}">
     <input type="text" v-model="title" placeholder="Title">
     <input type="text" v-model="text" :placeholder="placeHolderTxt">
     <button @click="setNoteType('note-txt')">A</button>

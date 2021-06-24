@@ -2,7 +2,7 @@ import inputForNewNote from './input-for-new-note.js'
 
 export default {
     template: `
-    <div class="note-add main-screen">
+    <div class="note-add">
         <input type="text" @focus="onFocusClick" placeholder="Title" v-if="!onFocus">
         <div class="input-for-new-note-container" v-else>
             <input-for-new-note @createNote="createNote" @closeInputForNewNote="closeInputForNewNote"></input-for-new-note>

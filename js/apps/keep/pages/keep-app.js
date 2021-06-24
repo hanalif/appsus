@@ -5,8 +5,9 @@ import notesFilter from "../cmps/keep-items-cmps/notes-filter.js";
 
 export default {
     template: `
-    <section class="keep-app main-layout main-screen">
-        <notes-filter @filtered="setFilter"></notes-filter>
+    <section class="keep-app main-layout">
+        <notes-filter 
+        @setFilterBy="setFilterBy"></notes-filter>
         <div class="note-add-container">
             <note-add @createNote="createNote"></note-add>
         </div>
@@ -20,17 +21,16 @@ export default {
     `,
     data() {
         return {
-            notes: [],
+            notes: null,
             filterBy: null
-            
         }
     },
     computed: {
         notesToShow(){
-            if (!this.filterBy) return this.notes;
+            if (!this.filterBy ||(this.filterBy.type === 'all' && this.filterBy.title === '') ) return this.notes;
             const searchStr = this.filterBy.title.toLowerCase();
-            const notesToShow = this.notes.filter(note => {
-                return note.info.title.toLowerCase().includes(searchStr);
+            let notesToShow = this.notes.filter(note => {
+                return note.info.title.toLowerCase().includes(searchStr) && note.type === this.filterBy.type;
             });
             return notesToShow;
         }
@@ -70,7 +70,6 @@ export default {
              })
         },
         createNote(newNoteData) {
-            console.log('new note data', newNoteData)
             let note = keepService.createNote(newNoteData);
             keepService.save(note)
                 .then(()=>{
@@ -80,8 +79,8 @@ export default {
                         })
                 })
         },
-        setFilter(filterBy){
-            this.filterBy = filterBy;
+        setFilterBy(filterResults){
+            this.filterBy = filterResults;
            
         }
     },

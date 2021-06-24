@@ -18,7 +18,7 @@ import colorPalette from './color-palette.js';
 export default {
     props: ['notes'],
     template: `
-    <div class="keep-list main-screen">
+    <div class="keep-list">
         <div class="notes-container grid">
         <div class="add-note-container">
         </div>

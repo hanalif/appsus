@@ -1,0 +1,45 @@
+.notes-filter-container{
+   gap: 12px;
+   margin-bottom: 10px;
+   align-items: center;
+   width: 100%;
+}
+
+.filter-search-container{
+    position: relative;
+    width: 100%;
+}
+
+.filter-search-icon {
+    position: absolute;
+    top: 0.81rem;
+    left: 1.40rem;
+}
+
+.search-field-filter{
+    width: 100%;
+    background-color: #f1f3f4;
+    height:  2.74rem;;
+    border-radius: 8px;
+    border: 1px solid #1e1e1e00;
+    box-shadow: rgb(111 105 105 / 34%) -1px 0px 5px 0px;
+    padding-inline-start: 3.81rem;
+    font-family: abz-italic;
+    color: black;
+    font-size: 1.125rem
+}
+
+.search-field-filter:focus-visible {
+    outline: none;
+}
+
+.input-for-new-note-container{
+
+}
+
+.input-for-new-note {
+    
+}
+
+
+
