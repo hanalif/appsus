@@ -19,12 +19,22 @@
 @import './basic/helpers.css';
 
 /* keep */
+
 @import './apps/keep/cmps/keep-list.css';
 @import './apps/keep/cmps/notes/note-img.css';
+
 /* mail preview */
 
 @import './apps/mail/cmps/email-preview.css';
 
 /* mail details */
 
-@import './apps/mail/pages/email-details.css'
+@import './apps/mail/pages/email-details.css';
+
+/* mail compose */
+
+@import './apps/mail/cmps/email-compos.css';
+
+/* mail list */
+
+@import './apps/mail/cmps/email-list.css'
