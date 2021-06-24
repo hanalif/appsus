@@ -1,10 +1,9 @@
 import { mailService } from "../services/mail-service.js";
-
-
 export default {
     template: `
     <div class="mail-compose ">
-        <button @click="mailBox = true" v-if="openCompose">+ Compose</button>
+        <button @click="mailBox = true" v-if="openCompose" class="compose-btn">
+        <span class="plus">+</span>Compose</button>
         <div class="compose-mail" v-if="mailBox">
         <div class="compose-head flex space-between">
         <p>{{title}}</p>
@@ -14,7 +13,7 @@ export default {
         <input type="text" placeholder="to">
         <input v-model="newMail.subject" type="text" placeholder="subject">
         <input v-model="newMail.body" class="compose-body" type="text" placeholder="body">
-        <button class="compose-btn">send</button>
+        <button class="send-btn">send</button>
         </form>
         </div>
     </div>

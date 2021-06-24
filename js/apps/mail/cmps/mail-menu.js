@@ -1,10 +1,19 @@
 export default {
     template: `
     <section>
-    <button>inbox</button>
-    <button>stared</button>
+    <router-link to="/mail/inbox"><button @click="inbox">inbox</button></router-link>
+    <router-link to="/mail/stared"><button @click="stared">stared</button></router-link>
     <button>sent mail</button>
     <button>draft</button>
     </section>
-    `
+    `,
+    methods: {
+        stared() {
+            this.$emit('stared')
+        },
+        inbox() {
+            this.$emit('inbox')
+        }
+    }
+
 }

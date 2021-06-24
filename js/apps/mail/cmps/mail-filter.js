@@ -1,3 +1,5 @@
+import { eventBus } from "../../../services/event-bus-service.js";
+
 export default {
     template: `
     <section>
@@ -21,6 +23,7 @@ export default {
     methods: {
         filter() {
             this.$emit('filtered', this.filterBy);
+            eventBus.$emit('filter', {...this.filterBy })
         },
         readed() {
             this.filterBy.isRead = true
