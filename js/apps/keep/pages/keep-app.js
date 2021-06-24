@@ -1,15 +1,20 @@
 import keepList from "../cmps/keep-list.js"
 import {keepService} from "../services/keep-service.js"
+import noteAdd from '../cmps/note-add.js';
 
 export default {
     template: `
     <section class="keep-app main-layout main-screen">
-    <keep-list 
-    @saveNoteChanges="saveNoteChanges" 
-    @deleteNote="deleteNote"
-    @updateNoteColor="updateNoteColor" 
-    :notes="notesToShow">
-    </keep-list>
+        <notes-filter></notes-filter>
+        <div class="note-add-container">
+            <note-add @createNote="createNote"></note-add>
+        </div>
+        <keep-list 
+            @saveNoteChanges="saveNoteChanges" 
+            @deleteNote="deleteNote"
+            @updateNoteColor="updateNoteColor" 
+            :notes="notesToShow">
+        </keep-list>
     </section>
     `,
     data() {
@@ -57,7 +62,17 @@ export default {
                          this.notes = notes;
                      })
              })
-
+        },
+        createNote(newNoteData) {
+            console.log('new note data', newNoteData)
+            let note = keepService.createNote(newNoteData);
+            keepService.save(note)
+                .then(()=>{
+                    keepService.query()
+                        .then(notes => { 
+                            this.notes = notes;
+                        })
+                })
         }
     },
     created(){
@@ -65,6 +80,7 @@ export default {
             .then(notes => this.notes = notes)
     },
     components: {
-        keepList
+        keepList,
+        noteAdd
     }
 }

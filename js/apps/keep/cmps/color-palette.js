@@ -20,7 +20,12 @@ export default {
     methods: {
         pickColor(index){
             const color = this.colors[index];
-            const colorStyle = {style: color, note: this.data}
+            let colorStyle;
+            if(this.data){
+                colorStyle = {style: color, note: this.data}
+            }else{
+                colorStyle = color;
+            }
             this.$emit('pickedColor', colorStyle);
         }
     },

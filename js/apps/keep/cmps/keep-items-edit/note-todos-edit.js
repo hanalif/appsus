@@ -1,24 +1,22 @@
 export default {
     props:['data'],
     template: `
-    <section class="note-img-edit">
-        <input v-model="imgUrl" type="url" name="url" id="url"
-            :placeholder="data.info.url">
-        <input v-model="imgTitle" type="text" :placeholder="data.info.title">
+    <section class="note-todos-edit">
+        <input v-model="listTitle" type="text" :placeholder="data.info.title">
+        <ul><li class="todos-container" v-for="todo in data.info.todos">
+            <p>{{todo}}</p>
+        </li></ul>
         <button @click="saveChanges">✅</button>
         <button @click="closeEditor">X</button>
     </section>
     `,
     data(){
         return{
-           imgUrl: null,
-           imgTitle: null,
+           listTitle: null,
         }
     },
     methods: {
         saveChanges(){
-            if(!this.imgUrl) this.imgUrl = this.data.info.url;
-            if(!this.imgTitle) this.imgTitle = this.data.info.title;
             const savedData = {url: this.imgUrl, title: this.imgTitle}
             this.$emit('saveChanges', savedData);
         },
@@ -28,3 +26,5 @@ export default {
     },
     
 }
+
+

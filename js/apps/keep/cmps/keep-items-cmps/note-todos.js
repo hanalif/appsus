@@ -1,10 +1,10 @@
-
 export default {
     props:['data'],
     template: `
     <section class="note-todos">
-    <img class="img-note" :src="data.info.url" alt="">
     <h2>{{data.info.title}}</h2>
+    <p>{{data.info.}}</p>
+
     </section>
     `,
     data(){

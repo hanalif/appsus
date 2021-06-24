@@ -17,6 +17,9 @@ export default {
     },
     methods: {
         saveChanges(){
+            if(!this.txtTitle) this.txtTitle = this.data.info.title;
+            if(!this.freeTxt) this.freeTxt = this.data.info.freeTxt;
+
             const savedData = {title: this.txtTitle, freeTxt: this.freeTxt}
             this.$emit('saveChanges', savedData);
         },

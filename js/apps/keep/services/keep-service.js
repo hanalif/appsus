@@ -10,6 +10,7 @@ export const keepService = {
     remove,
     save,
     getById,
+    createNote
 };
 
 
@@ -53,9 +54,43 @@ function _createNotes() {
     return notes;
 }
 
-function _createNote() {
-    const note = {
-        id: utilService.makeId(),
-    };
+
+function createNote(newNoteData) {
+    let note = { style: newNoteData.style}
+    switch (newNoteData.noteType) {
+        case 'note-txt':
+            note.type = 'note-txt'
+            note.info = {
+                        title: newNoteData.title,
+                        freeTxt: newNoteData.text
+                    }
+            break;
+        case 'note-img':
+            note.type = 'note-img'
+            note.info = {
+                title: newNoteData.title,
+                url: newNoteData.text
+            }
+            break;
+        case 'note-video':
+            note.type = 'note-video'
+            note.info = {
+                title: newNoteData.title,
+                url: newNoteData.text
+            }
+            break;
+        default:
+            break;
+    } 
     return note;
-}
+}   
+
+
+// case 'note-todos':
+//             let todos = todosStr.split(',');
+//             note.type = 'note-todos'
+//             note.info = {
+//                 title: newNoteData.title,
+//                 todos: todos
+//             }
+//             break;

@@ -17,7 +17,11 @@ export default {
     },
     methods: {
         saveChanges(){
-            const savedData = {url: this.videoUrl, title: this.videoTitle}
+            if(!this.videoUrl) this.videoUrl = this.data.info.url;
+            if(!this.videoTitle) this.videoTitle = this.data.info.title;
+            let url = this.videoUrl;
+            let formatedUrl = url.replace('watch?v=','embed/')
+            const savedData = {url: formatedUrl, title: this.videoTitle}
             this.$emit('saveChanges', savedData);
         },
         closeEditor(){

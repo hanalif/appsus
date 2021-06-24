@@ -54,7 +54,7 @@ function getInitialNotes() {
             id: storageService.makeId(),
             type: "noteVideo",
             info: {
-                url: "https://www.youtube.com/watch?v=GR8XEQTlvEw",
+                url: "https://www.youtube.com/watch?v=9FlhDq8aCBo",
                 title: "Dynamic Component"
             },
         },
