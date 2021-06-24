@@ -4,6 +4,7 @@ import mailFilter from '../cmps/mail-filter.js';
 import mailCompose from '../cmps/mail-compose.js';
 import mailMenu from '../cmps/mail-menu.js';
 
+{ /* <mail-list :mails="mailsToShow"></mail-list> */ }
 
 export default {
     template: `
@@ -14,14 +15,14 @@ export default {
     <mail-compose @uptdate-mail="uptdate"></mail-compose>
     <mail-menu class="flex column" />
     </div>
-    <mail-list :mails="mailsToShow"></mail-list>
+    <router-view ></router-view>
     </div>
     </section>
     `,
     data() {
         return {
             mails: null,
-            filterBy: null
+            filterBy: null,
         }
     },
     methods: {
@@ -53,7 +54,7 @@ export default {
         mailList,
         mailFilter,
         mailCompose,
-        mailMenu
+        mailMenu,
     },
     created() {
         mailService.query()

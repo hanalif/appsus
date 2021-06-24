@@ -9,6 +9,7 @@ const gMails = [{
         body: 'Pick up!',
         isRead: false,
         sentAt: 1551133930594,
+        isStared: false,
         id: '2233'
     },
     {
@@ -17,6 +18,7 @@ const gMails = [{
         subject: 'helllo?',
         body: 'lets do it!',
         isRead: false,
+        isStared: false,
         sentAt: 1551133930594,
         id: '2243'
     },
@@ -26,6 +28,7 @@ const gMails = [{
         subject: 'tody',
         body: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolore. Voluptatem porro illum sapiente saepe odit rerum, ad nesciunt debitis voluptatum doloremque, quasi sequi exercitationem! Facilis praesentium at illum quidem.',
         isRead: false,
+        isStared: false,
         sentAt: 1551133930594,
         id: '2293'
     }
@@ -73,6 +76,7 @@ function editMail(mail) {
         mailFrom: 'benitzhak72@gmail.com',
         subject: mail.subject,
         body: mail.body,
+        isStared: mail.isStared,
         isRead: mail.isRead,
         sentAt: mail.sentAt || Date.now(),
         id: mail.id
@@ -86,6 +90,7 @@ function addNewMail(mail) {
         mailFrom: 'benitzhak72@gmail.com',
         subject: mail.subject,
         body: mail.body,
+        isStared: false,
         isRead: false,
         sentAt: Date.now(),
         id: utilService.makeId()

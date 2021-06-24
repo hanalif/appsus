@@ -17,6 +17,19 @@
     border: none;
 }
 
-.compose-btn {
+.send-btn {
     width: 100px;
+}
+
+.compose-btn {
+    border-radius: 20px;
+    width: 150px;
+    padding: 10px;
+}
+
+.plus {
+    font-size: xx-large;
+    padding-right: 10px;
+    color: lightskyblue;
+    font-weight: bolder;
 }

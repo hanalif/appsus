@@ -11,6 +11,7 @@ export default {
     <router-link to="/mail" ><button @click="remove">delete</button></router-link>
     <router-link :to="'/mail/' + prevMailId" ><button @click="moveToPrevMail"><</button></router-link>
     <router-link :to="'/mail/' + nextMailId" ><button @click="moveToNextMail">></button></router-link>
+    <button @click="setStared">{{star}}</button>
     <button @click="edit = true">edit</button>
     <mail-compose v-if="edit"></mail-compose>
     <h2>{{mail.subject}}</h2>
@@ -18,13 +19,13 @@ export default {
     <div class="mail-body-details">{{mail.body}}</div>
     </section>
     `,
-    // <router-link :to="'/mail/edit/'+mail.id"><button >edit</button></router-link>
     data() {
         return {
             mail: null,
             nextMailId: null,
             prevMailId: null,
-            edit: false
+            edit: false,
+            star: '⭐'
         }
     },
     computed: {
@@ -35,6 +36,12 @@ export default {
     },
 
     methods: {
+        setStared() {
+            this.mail.isStared = !this.mail.isStared
+            if (this.mail.isStared) this.star = '★'
+            else this.star = '⭐'
+            mailService.save(this.mail)
+        },
         remove() {
             mailService.remove(this.mail.id)
         },
@@ -64,6 +71,8 @@ export default {
                 mail.isRead = true
                 mailService.save(mail)
                 this.mail = mail
+                if (mail.isStared) this.star = '★'
+                else this.star = '⭐'
             })
     },
 }

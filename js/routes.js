@@ -2,7 +2,10 @@ import homePage from './pages/home-page.js';
 import keepApp from './apps/keep/pages/keep-app.js';
 import mailApp from './apps/mail/pages/mail-app.js';
 import mailDetails from './apps/mail/pages/mail-details.js';
-import mailCompose from './apps/mail/cmps/mail-compose.js'
+import mailCompose from './apps/mail/cmps/mail-compose.js';
+import mailStared from './apps/mail/cmps/mail-stared.js';
+import mailInbox from './apps/mail/cmps/mail-inbox.js';
+
 
 
 const routes = [{
@@ -15,7 +18,16 @@ const routes = [{
     },
     {
         path: '/mail',
-        component: mailApp
+        component: mailApp,
+        children: [{
+                path: 'stared',
+                component: mailStared
+            },
+            {
+                path: 'inbox',
+                component: mailInbox
+            },
+        ]
     },
     {
         path: '/mail/edit/:mailId?',
