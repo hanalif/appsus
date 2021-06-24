@@ -9,25 +9,24 @@ import mailMenu from '../cmps/mail-menu.js';
 export default {
     template: `
     <section class="mail-app main-layout main-screen">
-    <mail-filter @filtered="setFilter"/>
-    <div class="app-container flex">
-    <div class="app-actions">
-    <mail-compose @uptdate-mail="uptdate"></mail-compose>
-    <mail-menu class="flex column" />
-    </div>
-    <router-view ></router-view>
-    </div>
+        <mail-filter @filtered="setFilter"/>
+        <div class="app-container flex">
+            <div class="app-actions">
+                <mail-compose @uptdate-mail="uptdate"></mail-compose>
+                <mail-menu class="flex column" />
+            </div>
+            <router-view ></router-view>
+        </div>
     </section>
     `,
     data() {
         return {
             mails: null,
-            filterBy: null,
         }
     },
     methods: {
         setFilter(filterBy) {
-            this.filterBy = filterBy;
+            mailService.setFilters(filterBy);
         },
         uptdate() {
             mailService.query()

@@ -29,19 +29,13 @@ export default {
                 this.mails = staredMails
                 console.log(this.mails);
             })
-        eventBus.$on('filter', (filterBy) => {
-            console.log('~ filterBy', filterBy)
-            if (!filterBy) return this.mails
-            const searchStr = filterBy.txt.toLowerCase();
-            const isRead = filterBy.isRead
-            const mailsToShow = this.mails.filter(mail => {
-                if (isRead === '1') return mail.body.toLowerCase().includes(searchStr) &&
-                    this.mails
-                else return mail.body.toLowerCase().includes(searchStr) &&
-                    (isRead) ? mail.isRead : !mail.isRead
-            });
-            this.mails = mailsToShow;
-        })
+
+        eventBus.$on('filtersUpdated', () => {
+            mailService.getFilterdMails().then((mails) => {
+                const staredMails = mails.filter(mail => mail.isStared)
+                this.mails = staredMails;
+            })
+        });
     },
     computed: {
         mailsToShow(filterBy) {

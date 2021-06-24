@@ -19,12 +19,18 @@ const routes = [{
     {
         path: '/mail',
         component: mailApp,
-        children: [{
+        redirect: {
+            name: 'route.inbox'
+        },
+        children: [
+            {
                 path: 'stared',
+                name: 'route.stared',
                 component: mailStared
             },
             {
                 path: 'inbox',
+                name: 'route.inbox',
                 component: mailInbox
             },
         ]

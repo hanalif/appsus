@@ -1,5 +1,6 @@
 import { storageService } from '../../../services/async-storage-service.js';
 import { utilService } from '../../../services/utills-service.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 
 const MAILS_KEY = 'mails';
 const gMails = [{
@@ -32,7 +33,12 @@ const gMails = [{
         sentAt: 1551133930594,
         id: '2293'
     }
-]
+];
+
+let filters = {
+    txt: '',
+    readStatus: 'all',
+}
 
 export const mailService = {
     query,
@@ -41,7 +47,9 @@ export const mailService = {
     getById,
     getNextMailId,
     getPrevMailId,
-    addNewMail
+    addNewMail,
+    setFilters,
+    getFilterdMails
 };
 
 function query() {
@@ -120,6 +128,25 @@ function getPrevMailId(mailId) {
             const idx = mails.findIndex(mail => mail.id === mailId)
             return (idx === 0) ? mails[mails.length - 1].id : mails[idx - 1].id
         })
+}
+
+function setFilters(filtersToSet) {
+    filters = filtersToSet;
+    eventBus.$emit('filtersUpdated');
+}
+
+function getFilterdMails() {
+    return query()
+        .then(mails => {
+            if (filters.text == '' && filter.readStatus === 'all') return mails;
+            const searchStr = filters.txt.toLowerCase();
+            return mails.filter(m => {
+                return (searchStr === '' || m.body.toLowerCase().includes(searchStr)) 
+                    && (filters.readStatus === 'all'
+                        || (filters.readStatus === 'read' && m.isRead === true) 
+                        || (filters.readStatus === 'unRead' && m.isRead === false)); 
+            });
+        });
 }
 
 function saveToStorage(key, val) {
