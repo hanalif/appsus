@@ -10,7 +10,7 @@ export default{
         <label for="all">All</label>
         <input type="radio" v-model="filterBy.type" name="search" @input="setFilterBy" value="noteImg">
         <label for="img">Images</label>
-        <input type="radio"  v-model="filterBy.type" name="search" @input="setFilterBy" value="noteText" >
+        <input type="radio"  v-model="filterBy.type" name="search" @input="setFilterBy" value="noteTxt" >
         <label for="text">Text</label>
         <input type="radio"  v-model="filterBy.type" name="search" @input="setFilterBy" value="noteVideo">
         <label for="video">Video</label>

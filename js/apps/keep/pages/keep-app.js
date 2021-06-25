@@ -14,7 +14,7 @@ export default {
         <keep-list 
             @saveNoteChanges="saveNoteChanges" 
             @deleteNote="deleteNote"
-            @updateNoteColor="updateNoteColor" 
+            @updateNoteColor="saveNoteChanges" 
             :notes="notesToShow">
         </keep-list>
     </section>
@@ -30,7 +30,7 @@ export default {
             if (!this.filterBy ||(this.filterBy.type === 'all' && this.filterBy.title === '') ) return this.notes;
             const searchStr = this.filterBy.title.toLowerCase();
             let notesToShow = this.notes.filter(note => {
-                return note.info.title.toLowerCase().includes(searchStr) && note.type === this.filterBy.type;
+                return note.info.title.toLowerCase().includes(searchStr) && (this.filterBy.type === 'all' || note.type === this.filterBy.type);
             });
             return notesToShow;
         }
@@ -54,20 +54,6 @@ export default {
                         this.notes = notes;
                     })
             });
-        },
-        updateNoteColor(styleData){
-            let note = styleData.note;
-            if(!note.style){
-                note.style = '';
-             }
-             note.style = styleData.style;
-             keepService.save(note)
-             .then(()=>{
-                 keepService.query()
-                     .then(notes => { 
-                         this.notes = notes;
-                     })
-             })
         },
         createNote(newNoteData) {
             let note = keepService.createNote(newNoteData);
