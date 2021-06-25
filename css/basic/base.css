@@ -11,6 +11,10 @@ div {
     padding: 0;
 }
 
+.main-screen{
+    min-height: 82vh;
+}
+
 button {
     cursor: pointer;
 }
@@ -28,9 +32,6 @@ a:hover {
     box-sizing: border-box;
 }
 
-.main-screen {
-    height: 90vh;
-}
 
 .main-layout {
     max-width: 80%;

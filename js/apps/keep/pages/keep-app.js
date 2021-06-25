@@ -8,7 +8,7 @@ export default {
     <section class="keep-app main-layout">
         <notes-filter 
         @setFilterBy="setFilterBy"></notes-filter>
-        <div class="note-add-container">
+        <div class="note-add-container flex align-center">
             <note-add @createNote="createNote"></note-add>
         </div>
         <keep-list 

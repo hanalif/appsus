@@ -2,30 +2,26 @@ import inputForNewNote from './input-for-new-note.js'
 
 export default {
     template: `
-    <div class="note-add">
-        <input type="text" @focus="onFocusClick" placeholder="Title" v-if="!onFocus">
-        <div class="input-for-new-note-container" v-else>
-            <input-for-new-note @createNote="createNote" @closeInputForNewNote="closeInputForNewNote"></input-for-new-note>
-        </div>
+    <div class="note-add flex row ">
+        <button title="add new note" @click="addNewNote" class="add-note-btn keep-app-btn flex content-center align-center"> 
+            <i class="fas fa-plus"></i></button>
+        <input-for-new-note class="input-for-new-note-container" v-if="isAddNoteOpen" @createNote="createNote"></input-for-new-note>
     </div>
     `,
     data(){
         return {
-            onFocus: null,
+            isAddNoteOpen: null,
         }
     },
     methods: {
         createNote(newNoteData) {
             this.$emit('createNote', newNoteData);
-            this.onFocus = !this.onFocus;
+            this.isAddNoteOpen = !this.isAddNoteOpen;
 
         },
-        onFocusClick(){
-           this.onFocus = !this.onFocus;
+        addNewNote(){
+           this.isAddNoteOpen = !this.isAddNoteOpen;
         },
-        closeInputForNewNote(){
-            this.onFocus = false;
-        }
     },
     components:{
         inputForNewNote

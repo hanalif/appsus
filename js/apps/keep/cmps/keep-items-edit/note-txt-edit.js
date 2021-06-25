@@ -4,7 +4,6 @@ export default {
     <section class="note-txt-edit">
         <input v-model="txtTitle" type="text" :placeholder="data.info.title">
         <input v-model="freeTxt" type="text" :placeholder="data.info.freeTxt">
-            :placeholder="data.info.url">
         <button @click="saveChanges">✅</button>
         <button @click="closeEditor">X</button>
     </section>

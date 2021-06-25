@@ -1,6 +1,6 @@
 .notes-container{
     gap: 10px;
-    grid-template-columns: repeat( auto-fit, minmax(238px, 1fr) ) ;
+    grid-template-columns: repeat( auto-fill, minmax(238px, 1fr) ) ;
     gap: 10px;
     grid-auto-flow: dense;
 }
@@ -12,4 +12,5 @@
     padding: 10px;
     border-radius: 3px;
     box-shadow: rgb(111 105 105 / 34%) -1px 0px 5px 0px;
+    height: 100%;
 }

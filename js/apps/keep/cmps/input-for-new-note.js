@@ -1,16 +1,21 @@
 import colorPalette from './color-palette.js'
 export default {
     template: `
-    <section class="input-for-new-note flex" :style=" {'background-color': style}">
-    <button @click="closeInputForNewNote">X</button>
-    <input type="text" v-model="title" placeholder="Title">
-    <input type="text" v-model="text" :placeholder="placeHolderTxt">
-    <button @click="setNoteType('note-txt')">A</button>
-        <button @click="setNoteType('note-img')">img</button>
-        <button @click="setNoteType('note-video')">video</button>
-        <button @click="opencolorPalette">🎨</button>
-        <color-palette v-if="isOnColorPalette" @pickedColor="pickedColor"></color-palette>
-        <button @click="createNote">save</button>
+    <section class="input-for-new-note flex align-center column" :style=" {'background-color': style}">
+    <div class="inputs-btns-container inputs-btns-container flex content-center align-center">
+        <button class="keep-app-btn new-note-btn" title="add new text note"  @click="setNoteType('note-txt')"><i class="fas fa-font"></i></button>
+        <button class="keep-app-btn new-note-btn" title="add new image note" @click="setNoteType('note-img')"><i class="far fa-image"></i></button>
+        <button class="keep-app-btn new-note-btn" title="add new youtube video note" @click="setNoteType('note-video')"><i class="fab fa-youtube"></i></button>
+        <button class="keep-app-btn new-note-btn" title="add new list note" @click="setNoteType('note-todos')"><i class="fas fa-list-ul"></i></button>
+    </div>
+    <input class="new-note-input-field" type="text" v-model="title" placeholder="Title">
+    <input class="new-note-input-field" type="text" v-model="text" :placeholder="placeHolderTxt">
+    <div class="inputs-btns-container flex content-center align-center">
+        <button class="keep-app-btn new-note-btn" @click="opencolorPalette"><i class="fas fa-palette"></i></button>
+        <color-palette title="change note background color" v-if="isOnColorPalette" @pickedColor="pickedColor"></color-palette>
+        <button title="save note" class="keep-app-btn new-note-btn" @click="createNote"><i class="fas fa-arrow-down"></i></button>
+    </div>
+        
     </section>
     `,
     data(){
@@ -29,9 +34,6 @@ export default {
         },
         opencolorPalette(){
             this.isOnColorPalette = !this.isOnColorPalette;
-        },
-        closeInputForNewNote(){
-           this.$emit('closeInputForNewNote');
         },
         pickedColor(color){
             this.style = color;

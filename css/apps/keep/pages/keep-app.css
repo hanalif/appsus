@@ -1,3 +1,16 @@
 .keep-app {
     color: black;
 }
+
+.keep-app-btn{
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    font-family: 'abz-italic';
+    font-size: 18px;
+    box-shadow: rgb(111 105 105 / 34%) -1px 0px 5px 0px;
+}
+
+.note-add-container{
+    margin-bottom: 1em;
+}

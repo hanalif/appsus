@@ -1,0 +1,25 @@
+.marked-todo{
+    text-decoration: line-through;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.note-todos-list{
+    padding: 0;
+}
+
+.add-new-todo-input-field{
+    width: 100%;
+    background-color: #f1f3f4;
+    height: 2rem;
+    border-radius: 2px;
+    border: 1px solid #1e1e1e00;
+    box-shadow: rgb(111 105 105 / 34%) -1px 0px 5px 0px;
+    font-family: abz-italic;
+    color: black;
+}
+
