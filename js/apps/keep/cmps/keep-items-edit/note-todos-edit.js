@@ -3,9 +3,6 @@ export default {
     template: `
     <section class="note-todos-edit">
         <input v-model="listTitle" type="text" :placeholder="data.info.title">
-        <ul><li class="todos-container" v-for="todo in data.info.todos">
-            <p>{{todo}}</p>
-        </li></ul>
         <button @click="saveChanges">✅</button>
         <button @click="closeEditor">X</button>
     </section>
@@ -13,16 +10,22 @@ export default {
     data(){
         return{
            listTitle: null,
+           todos: this.data.info.todos
         }
     },
     methods: {
+        addNewTodo(){
+            let currTodo = this.newTodo;
+            this.dotos.push(currTodo);
+            this.newTodo = '';
+        },
         saveChanges(){
-            const savedData = {url: this.imgUrl, title: this.imgTitle}
+            const savedData = { title: this.listTitle, todos: this.todos }
             this.$emit('saveChanges', savedData);
         },
         closeEditor(){
             this.$emit('closeEditor');
-        } 
+        }
     },
     
 }

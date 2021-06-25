@@ -56,27 +56,37 @@ function _createNotes() {
 
 
 function createNote(newNoteData) {
-    let note = { style: newNoteData.style}
+    let note = { style: newNoteData.style, isPinned: false}
     switch (newNoteData.noteType) {
         case 'note-txt':
-            note.type = 'note-txt'
+            note.type = 'noteTxt'
             note.info = {
                         title: newNoteData.title,
                         freeTxt: newNoteData.text
                     }
             break;
         case 'note-img':
-            note.type = 'note-img'
+            note.type = 'noteImg'
             note.info = {
                 title: newNoteData.title,
                 url: newNoteData.text
             }
             break;
         case 'note-video':
-            note.type = 'note-video'
+            note.type = 'noteVideo'
             note.info = {
                 title: newNoteData.title,
                 url: newNoteData.text
+            }
+            break;
+            case 'note-todos':
+            let todosList =  newNoteData.text.split(',').map(txt=>{
+                return {txt: txt, isMarked: false, doneAt: null}
+            })
+            note.type = 'noteTodos'
+            note.info = {
+                title: newNoteData.title,
+                todos: todosList
             }
             break;
         default:
@@ -85,12 +95,3 @@ function createNote(newNoteData) {
     return note;
 }   
 
-
-// case 'note-todos':
-//             let todos = todosStr.split(',');
-//             note.type = 'note-todos'
-//             note.info = {
-//                 title: newNoteData.title,
-//                 todos: todos
-//             }
-//             break;

@@ -18,6 +18,9 @@
 
 @import './basic/helpers.css';
 
+/* pages */
+@import './pages/home-page.css';
+
 /* keep */
 
 @import './apps/keep/cmps/keep-list.css';
@@ -25,6 +28,10 @@
 @import './apps/keep/cmps/notes/color-palette.css';
 @import './apps/keep/cmps/notes-filter.css';
 @import './apps/keep/cmps/note-video.css';
+@import './apps/keep/cmps/notes/note-todo.css';
+@import './apps/keep/pages/keep-app.css';
+@import './apps/keep/cmps/notes/add-note.css';
+@import './apps/keep/cmps/input-for-new-note.css';
 
 /* mail preview */
 

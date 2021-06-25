@@ -1,19 +1,23 @@
 .notes-filter-container{
    gap: 12px;
-   margin-bottom: 10px;
+   margin-bottom: 1rem;
    align-items: center;
    width: 100%;
 }
 
 .filter-search-container{
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
+    gap: 12px;
+   
 }
 
 .filter-search-icon {
     position: absolute;
-    top: 0.81rem;
-    left: 1.40rem;
+    top: 13px;
+    left: 13px;
 }
 
 .search-field-filter{
@@ -23,7 +27,7 @@
     border-radius: 8px;
     border: 1px solid #1e1e1e00;
     box-shadow: rgb(111 105 105 / 34%) -1px 0px 5px 0px;
-    padding-inline-start: 3.81rem;
+    padding-inline-start: 2.5rem;
     font-family: abz-italic;
     color: black;
     font-size: 1.125rem
@@ -33,12 +37,9 @@
     outline: none;
 }
 
-.input-for-new-note-container{
-
-}
-
-.input-for-new-note {
-    
+.check-box-container{
+    width: 100%;
+    gap: 1em;
 }
 
 
