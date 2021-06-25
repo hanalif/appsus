@@ -8,6 +8,7 @@ function getInitialNotes() {
     return [
         {
             id: storageService.makeId(),
+            createdAt: new Date(),
             isPinned: false,
             type: "noteTxt",
             isPinned: true,
@@ -18,6 +19,7 @@ function getInitialNotes() {
         },
         {
             id: storageService.makeId(),
+            createdAt: new Date(),
             isPinned: false,
             type: "noteImg",
             info: {
@@ -27,6 +29,7 @@ function getInitialNotes() {
         },
         {
             id: storageService.makeId(),
+            createdAt: new Date(),
             isPinned: false,
             type: "noteTxt",
             info: {
@@ -36,6 +39,7 @@ function getInitialNotes() {
         },
         {
             id: storageService.makeId(),
+            createdAt: new Date(),
             isPinned: false,
             type: "noteImg",
             info: {
@@ -45,6 +49,7 @@ function getInitialNotes() {
         },
         {
             id: storageService.makeId(),
+            createdAt: new Date(),
             isPinned: false,
             type: "noteVideo",
             info: {

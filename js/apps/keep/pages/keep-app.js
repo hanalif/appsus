@@ -27,14 +27,25 @@ export default {
     },
     computed: {
         notesToShow(){
-            if (!this.filterBy ||(this.filterBy.type === 'all' && this.filterBy.title === '') ) return this.notes;
-            const searchStr = this.filterBy.title.toLowerCase();
-            let notesToShow = this.notes.filter(note => {
-                return note.info.title.toLowerCase().includes(searchStr) && (this.filterBy.type === 'all' || note.type === this.filterBy.type);
-            });
+            let notesToShow;
+            if (!this.filterBy ||(this.filterBy.type === 'all' && this.filterBy.title === '') ) {
+                notesToShow = this.notes;
+            }
+            else {
+                const searchStr = this.filterBy.title.toLowerCase();
+                notesToShow = this.notes.filter(note => {
+                    return note.info.title.toLowerCase().includes(searchStr) && (this.filterBy.type === 'all' || note.type === this.filterBy.type);
+                });
+            }
+
+            if (notesToShow) {
+                notesToShow = notesToShow.sort((a,b)=>{
+                    return   new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+                });
+            }
+
             return notesToShow;
         }
-
     },
     methods: {
         saveNoteChanges(note){
