@@ -34,7 +34,6 @@
 
 @import './apps/mail/pages/email-details.css';
 
-
 /* mail compose */
 
 @import './apps/mail/cmps/email-compos.css';
@@ -42,3 +41,11 @@
 /* mail list */
 
 @import './apps/mail/cmps/email-list.css';
+
+/* mail menu */
+
+@import './apps/mail/cmps/mail-menu.css';
+
+/* mail filter */
+
+@import './apps/mail/cmps/email.filter.css'

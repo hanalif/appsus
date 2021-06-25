@@ -12,7 +12,7 @@ export default {
         <mail-filter @filtered="setFilter"/>
         <div class="app-container flex">
             <div class="app-actions">
-                <mail-compose @uptdate-mail="uptdate"></mail-compose>
+                <mail-compose @uptdate-mail="update"></mail-compose>
                 <mail-menu class="flex column" />
             </div>
             <router-view ></router-view>
@@ -28,7 +28,7 @@ export default {
         setFilter(filterBy) {
             mailService.setFilters(filterBy);
         },
-        uptdate() {
+        update() {
             mailService.query()
                 .then(mails => {
                     this.mails = mails

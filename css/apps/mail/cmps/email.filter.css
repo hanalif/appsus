@@ -1,0 +1,23 @@
+.text-input {
+    width: 100%;
+    background-color: #f1f3f4;
+    height: 2.74rem;
+    border-radius: 8px;
+    border: 1px solid #1e1e1e00;
+    box-shadow: rgb(111 105 105 / 34%) -1px 0px 5px 0px;
+    padding-inline-start: 3.81rem;
+    font-family: abz-italic;
+    color: black;
+    font-size: 1.125rem;
+}
+
+.text-input:focus-visible {
+    outline: none;
+}
+
+.filter-radio {
+    gap: 12px;
+    margin: 20px 0;
+    justify-content: center;
+    width: 100%;
+}

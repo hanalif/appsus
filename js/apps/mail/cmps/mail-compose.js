@@ -2,18 +2,17 @@ import { mailService } from "../services/mail-service.js";
 export default {
     template: `
     <div class="mail-compose ">
-        <button @click="mailBox = true" v-if="openCompose" class="compose-btn">
+        <button @click="mailBox = true" v-if="openCompose" class="compose-btn flex ">
         <span class="plus">+</span>Compose</button>
         <div class="compose-mail" v-if="mailBox">
         <div class="compose-head flex space-between">
         <p>{{title}}</p>
-        <button @click="mailBox = false">x</button>
+        <button @click="mailBox = false" class="compose-exit-btn">x</button>
         </div>
         <form class="flex column" @submit.prevent="sendMail">
-        <input type="text" placeholder="to">
-        <input v-model="newMail.subject" type="text" placeholder="subject">
+        <input class="compose-sub" v-model="newMail.subject" type="text" placeholder="subject">
         <input v-model="newMail.body" class="compose-body" type="text" placeholder="body">
-        <button class="send-btn">send</button>
+        <button class="send-btn">send  >></button>
         </form>
         </div>
     </div>

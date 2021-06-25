@@ -5,6 +5,8 @@ import mailDetails from './apps/mail/pages/mail-details.js';
 import mailCompose from './apps/mail/cmps/mail-compose.js';
 import mailStared from './apps/mail/cmps/mail-stared.js';
 import mailInbox from './apps/mail/cmps/mail-inbox.js';
+import mailDraft from './apps/mail/cmps/mail-draft.js';
+import mailSent from './apps/mail/cmps/mail-sent.js';
 
 
 
@@ -22,8 +24,7 @@ const routes = [{
         redirect: {
             name: 'route.inbox'
         },
-        children: [
-            {
+        children: [{
                 path: 'stared',
                 name: 'route.stared',
                 component: mailStared
@@ -32,6 +33,16 @@ const routes = [{
                 path: 'inbox',
                 name: 'route.inbox',
                 component: mailInbox
+            },
+            {
+                path: 'sent',
+                name: 'route.sent',
+                component: mailSent
+            },
+            {
+                path: 'draft',
+                name: 'route.draft',
+                component: mailDraft
             },
         ]
     },

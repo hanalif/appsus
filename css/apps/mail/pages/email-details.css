@@ -10,3 +10,37 @@
     font-weight: bold;
     color: black;
 }
+
+.mail-body-details {
+    margin-top: 20px;
+}
+
+.details-btns {
+    border: none;
+    background-color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.details-btns:hover {
+    color: gray;
+}
+
+.back-btn {
+    transition: 2s;
+}
+
+.back-btn:hover {
+    transform: translateX(-20%);
+}
+
+.fa-trash {
+    font-size: 25px;
+}
+
+.mail-sub-details {
+    font-size: 50px;
+    margin: 20px 0;
+}

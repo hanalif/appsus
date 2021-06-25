@@ -7,14 +7,20 @@ import mailCompose from "../cmps/mail-compose.js";
 export default {
     template: `
     <section v-if="mail" class="mail-details main-layout main-screen">
-    <router-link to="/mail" ><button>Back To Inbox</button></router-link>
-    <router-link to="/mail" ><button @click="remove">delete</button></router-link>
-    <router-link :to="'/mail/' + prevMailId" ><button @click="moveToPrevMail"><</button></router-link>
-    <router-link :to="'/mail/' + nextMailId" ><button @click="moveToNextMail">></button></router-link>
-    <button @click="setStared">{{star}}</button>
-    <button @click="edit = true">edit</button>
+    <div class="actions flex space-between">
+    <div class="actions-left">
+    <router-link to="/mail" ><button class="details-btns back-btn" title="back to inbox">⬅</button></router-link>
+    <button @click="setStared" title="star mail" class="details-btns">{{star}}</button>
+    <router-link to="/mail" ><i title="delete mail" @click="remove" class="fa fa-trash details-btns" aria-hidden="true"></i></router-link>
+    <i title="edit mail" @click="edit = true" class="far fa-edit details-btns"></i>
     <mail-compose v-if="edit"></mail-compose>
-    <h2>{{mail.subject}}</h2>
+    </div>
+    <div class="actions-right">
+    <router-link :to="'/mail/' + prevMailId" ><button title="previous mail" class="arows-btns details-btns" @click="moveToPrevMail"><</button></router-link>
+    <router-link :to="'/mail/' + nextMailId" ><button title="next mail" class="arows-btns details-btns" @click="moveToNextMail">></button></router-link>
+    </div>
+    </div>
+    <h2 class="mail-sub-details">{{mail.subject}}</h2>
     <p class="sender"><span class="sent-name">{{mail.name}}</span> <{{mail.mailFrom}}> </p>
     <div class="mail-body-details">{{mail.body}}</div>
     </section>
