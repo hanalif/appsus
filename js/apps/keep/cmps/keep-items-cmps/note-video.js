@@ -2,9 +2,9 @@ export default {
     props:['data'],
     template: `
     <section class="note-video">
-    <iframe width="420" height="315" :src="formatedUrl"></iframe>
+    <iframe class="video-play" :src="formatedUrl"></iframe>
                                          
-    <h2>{{data.info.title}}</h2>
+    <h2 class="note-title">{{data.info.title}}</h2>
     </section>
     `,
     data(){

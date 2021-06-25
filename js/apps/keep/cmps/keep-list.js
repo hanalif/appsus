@@ -22,7 +22,7 @@ export default {
         <div class="notes-container grid">
         <div class="add-note-container">
         </div>
-            <div class="note-container"  
+            <div class="note-container flex column content-center align-center"  
             v-for="note in notes" 
             :key="note.id" 
             :style=" {'background-color': note.style}">

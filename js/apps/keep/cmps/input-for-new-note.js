@@ -2,6 +2,7 @@ import colorPalette from './color-palette.js'
 export default {
     template: `
     <section class="input-for-new-note flex" :style=" {'background-color': style}">
+    <button @click="closeInputForNewNote">X</button>
     <input type="text" v-model="title" placeholder="Title">
     <input type="text" v-model="text" :placeholder="placeHolderTxt">
     <button @click="setNoteType('note-txt')">A</button>
@@ -10,7 +11,6 @@ export default {
         <button @click="opencolorPalette">🎨</button>
         <color-palette v-if="isOnColorPalette" @pickedColor="pickedColor"></color-palette>
         <button @click="createNote">save</button>
-        <button @click="closeInputForNewNote">X</button>
     </section>
     `,
     data(){
