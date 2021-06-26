@@ -11,11 +11,20 @@ export default {
         <div class="note-add-container flex align-center">
             <note-add @createNote="createNote"></note-add>
         </div>
+        
         <keep-list 
             @saveNoteChanges="saveNoteChanges" 
             @deleteNote="deleteNote"
             @updateNoteColor="saveNoteChanges" 
-            :notes="notesToShow">
+            @notePinned="notePinned"
+            :notes="notesToShowForPinned">
+        </keep-list>
+        <keep-list 
+            @saveNoteChanges="saveNoteChanges" 
+            @deleteNote="deleteNote"
+            @updateNoteColor="saveNoteChanges" 
+            @notePinned="notePinned"
+            :notes="notesToShowForNonePinned">
         </keep-list>
     </section>
     `,
@@ -45,6 +54,20 @@ export default {
             }
 
             return notesToShow;
+        },
+        notesToShowForPinned() {
+            let notes = this.notesToShow;
+            if (notes) {
+                notes = notes.filter(n => n.isPinned);
+            }
+            return notes;
+        },
+        notesToShowForNonePinned() {
+            let notes = this.notesToShow;
+            if (notes) {
+                notes = notes.filter(n => !n.isPinned);
+            }
+            return notes;
         }
     },
     methods: {
@@ -78,7 +101,16 @@ export default {
         },
         setFilterBy(filterResults){
             this.filterBy = filterResults;
-           
+        },
+        notePinned(note) {
+            note.isPinned = !note.isPinned;
+            keepService.save(note)
+                .then(()=>{
+                    keepService.query()
+                        .then(notes => { 
+                            this.notes = notes;
+                        })
+                })
         }
     },
     created(){

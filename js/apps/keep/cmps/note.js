@@ -18,6 +18,7 @@ export default {
     props: ['note'],
     template: `
     <div class="note">
+        <button class="pin-btn" :class="{ 'is-pinned': note.isPinned }" @click="onPinButtonClick"><i class="fas fa-thumbtack"></i></button>
         <div class="note-container flex column content-center align-center" 
             :style=" {'background-color': note.style}">
             <component
@@ -78,7 +79,10 @@ export default {
                 this.note.style = color;
             }
             this.$emit('updateNoteColor', color);
-        }     
+        },
+        onPinButtonClick() {
+            this.$emit('notePinned');
+        }    
     },
     components: {
         noteImg,

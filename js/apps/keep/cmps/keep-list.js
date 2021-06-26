@@ -11,7 +11,8 @@ export default {
                 :note="note"
                 @deleteNote="deleteNote"  
                 @updateNoteColor="updateNoteColor(note)"
-                @saveNoteChanges="saveChanges">
+                @saveNoteChanges="saveChanges"
+                @notePinned="notePinned(note)">
             </note>            
         </div>
     </div>
@@ -38,7 +39,9 @@ export default {
         updateNoteColor(note) {
             this.$emit('updateNoteColor', note);
         },
-    
+        notePinned(note) {
+            this.$emit('notePinned', note);
+        }
     },
 
 }
