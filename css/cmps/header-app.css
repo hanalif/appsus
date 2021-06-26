@@ -44,3 +44,11 @@
     color: rgb(56, 54, 54);
     text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5), -2px 3px 7px rgba(166, 169, 165, 0.41);
 }
+
+@media (max-width: 800px){
+    .logo {
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+    }
+}
