@@ -46,8 +46,7 @@ export default {
                     <component v-if="isOnEdit"
                         :is="note.type + 'Edit'"
                         :data="note" 
-                        @saveChanges="saveChanges(note, $event)"
-                        @closeEditor="closeEditor">
+                        @saveChanges="saveChanges(note, $event)">
                     </component>
                 </div>
             </div>
@@ -73,9 +72,6 @@ export default {
         saveChanges(note, info){
             note.info = info;
             this.$emit('saveNoteChanges', note);
-        },
-        closeEditor(){
-            this.isOnEdit = !this.isOnEdit;
         },
         updateNoteColor(color) {
             if(!color){
