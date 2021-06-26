@@ -4,12 +4,12 @@ export default {
     <div class="header-container main-layout flex space-between">
     <router-link class="logo" to="/">App&sus</router-link>
     <nav class="flex header-nav">
-    <i @click="menuToggle = !menuToggle" class="fas fa-bars"></i>
+    <i @click="menuToggle = !menuToggle" class="fas fa-th"></i>
     <div v-if="menuToggle" class="apps">
     <div class="apps-icons">
-    <router-link to="/" ><i class="fas menu-icon fa-home"></i></router-link>
-    <router-link to="/keep"><i class="fas menu-icon fa-sticky-note"></i></router-link>
-    <router-link to="/mail"><i class="fas menu-icon fa-envelope"></i></router-link>
+    <router-link to="/" ><i @click="closeMenu" class="fas menu-icon fa-home"></i></router-link>
+    <router-link to="/keep"><i @click="closeMenu" class="fas menu-icon fa-sticky-note"></i></router-link>
+    <router-link to="/mail"><i @click="closeMenu" class="fas menu-icon fa-envelope"></i></router-link>
     </div>
     <div class="apps-icons">
     <i class="fas menu-icon unactive fa-cart-arrow-down"></i>
@@ -29,6 +29,11 @@ export default {
     data() {
         return {
             menuToggle: false
+        }
+    },
+    methods: {
+        closeMenu() {
+            this.menuToggle = false
         }
     }
 }

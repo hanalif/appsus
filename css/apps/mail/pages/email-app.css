@@ -1,3 +1,13 @@
 .mail-app {
     color: black;
+    margin: 0 50px;
+}
+
+@media (max-width: 850px) {
+    .mail-app {
+        margin: 0;
+    }
+    .app-container {
+        flex-direction: column;
+    }
 }

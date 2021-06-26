@@ -1,6 +1,5 @@
 .present-container {
     width: 100%;
-    /* border: 1px solid black; */
     height: 30px;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -16,4 +15,11 @@
 
 .present-count h3 {
     padding-top: 4px;
+}
+
+@media (max-width: 850px) {
+    .present-container {
+        width: 150px;
+        margin: 0 auto;
+    }
 }

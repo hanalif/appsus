@@ -9,9 +9,9 @@ import mailStatus from '../cmps/mail-status.js';
 
 export default {
     template: `
-    <section class="mail-app main-layout main-screen">
+    <section class="mail-app main-screen">
         <mail-filter @filtered="setFilter"/>
-        <div class="app-container flex">
+        <div class="app-container flex ">
             <div class="app-actions">
                 <mail-compose @uptdate-mail="update"></mail-compose>
                 <mail-status :mails="mails" class="mail-status"></mail-status>

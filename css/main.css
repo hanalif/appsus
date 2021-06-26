@@ -38,9 +38,6 @@
 @import './apps/keep/cmps/note-edit.css';
 @import './apps/keep/cmps/notes/note-txt.css';
 
-
-
-
 /* mail preview */
 
 @import './apps/mail/cmps/email-preview.css';
@@ -67,4 +64,8 @@
 
 /* mail status */
 
-@import './apps/mail/cmps/mail-status.css'
+@import './apps/mail/cmps/mail-status.css';
+
+/* mail app */
+
+@import './apps/mail/pages/email-app.css'
