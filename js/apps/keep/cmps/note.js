@@ -24,23 +24,27 @@ export default {
                 :is="note.type" 
                 :data="note">
             </component>
-            <action-btns 
-                :data="note" 
-                @deleteNote="deleteNote" 
-                @editNote="editNote"
-                @opencolorPalette="opencolorPalette"> 
-            </action-btns>
-            <color-palette 
-                v-if="isOnColorPalette" 
-                :data="note" 
-                @pickedColor="updateNoteColor">
-            </color-palette>
-            <component v-if="isOnEdit"
-                :is="note.type + 'Edit'"
-                :data="note" 
-                @saveChanges="saveChanges(note, $event)"
-                @closeEditor="closeEditor">
-            </component>
+            <div class="action-btns-and-color-palette-and-edit-container flex column">
+                <action-btns 
+                    :data="note" 
+                    @deleteNote="deleteNote" 
+                    @editNote="editNote"
+                    @opencolorPalette="opencolorPalette"> 
+                </action-btns>
+                <color-palette 
+                    v-if="isOnColorPalette" 
+                    :data="note" 
+                    @pickedColor="updateNoteColor">
+                </color-palette>
+                <div class="edit-container">
+                    <component v-if="isOnEdit"
+                        :is="note.type + 'Edit'"
+                        :data="note" 
+                        @saveChanges="saveChanges(note, $event)"
+                        @closeEditor="closeEditor">
+                    </component>
+                </div>
+            </div>
         </div>
     </div>
     `,

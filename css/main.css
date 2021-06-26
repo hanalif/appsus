@@ -32,6 +32,11 @@
 @import './apps/keep/pages/keep-app.css';
 @import './apps/keep/cmps/notes/add-note.css';
 @import './apps/keep/cmps/input-for-new-note.css';
+@import '/css/apps/keep/cmps/action-btns.css';
+@import '/css/apps/keep/cmps/note.css';
+@import '/css/apps/keep/cmps/note-edit.css';
+
+
 
 /* mail preview */
 

@@ -1,13 +1,13 @@
 export default {
     props:['data'],
     template: `
-    <section class="note-todos">
+    <section class="note-todos note-top-margin">
     <h2>{{data.info.title}}</h2>
     <input class="add-new-todo-input-field" v-model="addedNewTodo" type="text">
     <button @click="addTodo">+</button>
     <ul class="note-todos-list">
         <li v-for="(todo, index) in data.info.todos" :key="index" class="todo-item"> 
-            <h4 @click="markedTodo(index)" :class=" {'marked-todo': todo.isMarked}">>{{todo.txt}}</h4>
+            <h4 @click="markedTodo(index)" :class=" {'marked-todo': todo.isMarked}">{{todo.txt}}</h4>
             <button @click="deleteTodo(index)"><i class="fas fa-times"></i></button>
         </li>
     </ul>
@@ -27,8 +27,8 @@ export default {
         },
         addTodo(){
             let todos = this.data.info.todos;
-            todos.push(this.addedNewTodo);
-            this.addedNewTodo = '';
+            let newTodo = {txt: this.addedNewTodo, isMarked:false, doneAt: null}
+            todos.push(newTodo);
 
         },
         markedTodo(index){

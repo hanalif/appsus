@@ -12,14 +12,14 @@ export default {
                 @deleteNote="deleteNote"  
                 @updateNoteColor="updateNoteColor(note)"
                 @saveNoteChanges="saveChanges">
-            </note>
-            
+            </note>            
         </div>
     </div>
     `,
     data(){
         return {
-            style: null
+            style: null,
+            isNoteOpen: false
         }
     },
     components: {
@@ -37,7 +37,8 @@ export default {
         },
         updateNoteColor(note) {
             this.$emit('updateNoteColor', note);
-        }     
+        },
+    
     },
 
 }

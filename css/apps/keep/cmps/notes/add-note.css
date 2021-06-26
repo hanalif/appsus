@@ -10,3 +10,10 @@
     width: 2em;
    
 }
+
+
+@media (max-width: 555px){
+    .note-add {
+        flex-direction: column;
+    }
+}

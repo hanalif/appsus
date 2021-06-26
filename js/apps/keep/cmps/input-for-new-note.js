@@ -13,7 +13,7 @@ export default {
     <div class="inputs-btns-container flex content-center align-center">
         <button class="keep-app-btn new-note-btn" @click="opencolorPalette"><i class="fas fa-palette"></i></button>
         <color-palette title="change note background color" v-if="isOnColorPalette" @pickedColor="pickedColor"></color-palette>
-        <button title="save note" class="keep-app-btn new-note-btn" @click="createNote"><i class="fas fa-arrow-down"></i></button>
+        <button title="save note" class="keep-app-btn new-note-btn" @click="createNote">save</button>
     </div>
         
     </section>
