@@ -24,7 +24,7 @@ export default{
             </div>
         </div>
         <div class="filter-search-container">
-            <label class="filter-search-icon"><i class="fas fa-search"></i></label>
+            <label class="note-filter-search-icon"><i class="fas fa-search"></i></label>
             <input class="search-field-filter" v-model="filterBy.title" type="text" @input="setFilterBy" placeholder="Search...">
         </div>
     </section>
