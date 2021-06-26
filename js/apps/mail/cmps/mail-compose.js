@@ -36,6 +36,7 @@ export default {
                     this.newMail.body = mail.body
                     this.newMail.id = mail.id
                 });
+    
         }
     },
     computed: {
