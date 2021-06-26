@@ -1,7 +1,8 @@
 .footer-app {
-    background-color: rgba(43, 108, 129, 0.479);
+    background-color: #5e5a65;
     position: relative;
     bottom: 0;
     width: 100%;
     text-align: center;
+    color: white;
 }

@@ -13,8 +13,10 @@ export default {
         <mail-filter @filtered="setFilter"/>
         <div class="app-container flex ">
             <div class="app-actions">
-                <mail-compose @uptdate-mail="update"></mail-compose>
-                <mail-status :mails="mails" class="mail-status"></mail-status>
+                <div class="compose-status-container">
+                    <mail-compose @uptdate-mail="update"></mail-compose>
+                    <mail-status :mails="mails" class="mail-status"></mail-status>
+                </div>
                 <mail-menu class="flex column" />
             </div>
             <router-view ></router-view>

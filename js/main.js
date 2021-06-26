@@ -9,7 +9,7 @@ const options = {
     el: '#app',
     router,
     template: `
-        <section>
+        <section style="height:0px">
             <app-header />
             <router-view />
             <app-footer />

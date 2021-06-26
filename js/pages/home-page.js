@@ -6,9 +6,7 @@ export default {
                 <h2>Welcome to App&suss</h2>
                 <h3>Orgenize office and mail app</h3>
             </div>
-            
         </div>
-    
     </section>
     `
 }
