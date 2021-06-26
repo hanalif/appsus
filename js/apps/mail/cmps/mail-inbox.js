@@ -22,11 +22,23 @@ export default {
         }
     },
     created() {
-        mailService.query()
-            .then(mails => {
-                this.mails = mails
-                console.log(this.mails);
+        let parameters = this.$route.query;
+        if (parameters && parameters.subject && parameters.body) {
+            const newMail = { subject: parameters.subject, body: parameters.body };
+            mailService.addNewMail(newMail).then(() => {
+                mailService.query().then(mails => {
+                    this.mails = mails;
+                    console.log(mails);
+                    this.$router.replace({'subject': null, 'body': null});
+                });
             })
+        }
+        else {
+            mailService.query().then(mails => {
+                this.mails = mails;
+                console.log(mails);
+            });
+        }
 
         eventBus.$on('filtersUpdated', () => {
             mailService.getFilterdMails().then((mails) => {

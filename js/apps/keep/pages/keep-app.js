@@ -127,8 +127,25 @@ export default {
         }
     },
     created(){
-        keepService.query()
-            .then(notes => this.notes = notes)
+        let parameters = this.$route.query;
+        if (parameters && parameters.title && parameters.text) {
+            const textNote = { noteType: 'note-txt', title: parameters.title, text: parameters.text };
+            const note = keepService.createNote(textNote);
+            console.log(note);
+            keepService.save(note).then(() => {
+                keepService.query()
+                    .then(notes => {
+                        this.notes = notes;
+                        this.$router.replace({'title': null, 'text': null});
+                    });
+                })
+     
+        }
+        else {
+            keepService.query()
+                .then(notes => this.notes = notes)
+        }
+
     },
     components: {
         keepList,

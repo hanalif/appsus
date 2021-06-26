@@ -20,6 +20,7 @@ const routes = [{
     },
     {
         path: '/mail',
+        name: 'route.mail',
         component: mailApp,
         redirect: {
             name: 'route.inbox'
