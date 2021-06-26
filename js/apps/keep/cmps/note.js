@@ -19,7 +19,11 @@ export default {
     template: `
     <div class="note">
         <button class="pin-btn" :class="{ 'is-pinned': note.isPinned }" @click="onPinButtonClick"><i class="fas fa-thumbtack"></i></button>
-        <button class="maximize-btn" :class="{ 'is-pinned': note.isPinned }" @click="onExpandClick"><i class="fas" :class="{ 'fa-expand-alt': !isExpanded, 'fa-compress-alt': isExpanded }"></i></button>
+        <button class="maximize-btn" 
+        :class="{ 'is-pinned': note.isPinned }" 
+        @click="onExpandClick">
+            <i class="fas" :class="{ 'fa-expand-alt': !isExpanded, 'fa-compress-alt': isExpanded }"></i>
+        </button>
         <div class="note-container flex column content-center align-center" 
             :style=" {'background-color': note.style}">
             <component

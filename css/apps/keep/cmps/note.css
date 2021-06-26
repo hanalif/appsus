@@ -2,12 +2,8 @@
     position: relative;
 }
 
-.note:hover .pin-btn {
-    display: flex;
-}
-
 .pin-btn{
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -22,17 +18,13 @@
     color: #3b3c4096;
 }
 
-.note:hover .maximize-btn {
-    display: flex;
-}
-
 .maximize-btn{
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 0.35em;
-    right: 1.5em;
+    bottom: 0.35em;
+    right: 0.25em;
     background-color: transparent;
     border: none;
     font-size: 1.25rem;
