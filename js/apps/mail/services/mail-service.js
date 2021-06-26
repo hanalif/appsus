@@ -32,7 +32,17 @@ const gMails = [{
         isStared: false,
         sentAt: 1551133930594,
         id: '2293'
-    }
+    },
+    {
+        name: 'ben',
+        mailFrom: 'benitzhak72@gmail.com',
+        subject: 'ein al appsus',
+        body: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolore. Voluptatem porro illum sapiente saepe odit rerum, ad nesciunt debitis voluptatum doloremque, quasi sequi exercitationem! Facilis praesentium at illum quidem.',
+        isRead: false,
+        isStared: false,
+        sentAt: 1551133950394,
+        id: '2297'
+    },
 ];
 
 let filters = {
@@ -70,7 +80,6 @@ function remove(mailId) {
 
 function save(mail) {
     if (mail.id) {
-        console.log('~ mail', mail)
         var newMail = editMail(mail)
         return storageService.put(MAILS_KEY, newMail);
     } else {
@@ -141,10 +150,10 @@ function getFilterdMails() {
             if (filters.text == '' && filter.readStatus === 'all') return mails;
             const searchStr = filters.txt.toLowerCase();
             return mails.filter(m => {
-                return (searchStr === '' || m.body.toLowerCase().includes(searchStr)) 
-                    && (filters.readStatus === 'all'
-                        || (filters.readStatus === 'read' && m.isRead === true) 
-                        || (filters.readStatus === 'unRead' && m.isRead === false)); 
+                return (searchStr === '' || m.body.toLowerCase().includes(searchStr)) &&
+                    (filters.readStatus === 'all' ||
+                        (filters.readStatus === 'read' && m.isRead === true) ||
+                        (filters.readStatus === 'unRead' && m.isRead === false));
             });
         });
 }
