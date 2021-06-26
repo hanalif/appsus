@@ -15,32 +15,42 @@ import colorPalette from './color-palette.js';
 
 
 export default {
-    props: ['note'],
+    props: ['note', 'isExpanded'],
     template: `
     <div class="note">
+        <button class="pin-btn" :class="{ 'is-pinned': note.isPinned }" @click="onPinButtonClick"><i class="fas fa-thumbtack"></i></button>
+        <button class="maximize-btn" 
+        :class="{ 'is-pinned': note.isPinned }" 
+        @click="onExpandClick">
+            <i class="fas" :class="{ 'fa-expand-alt': !isExpanded, 'fa-compress-alt': isExpanded }"></i>
+        </button>
         <div class="note-container flex column content-center align-center" 
             :style=" {'background-color': note.style}">
             <component
                 :is="note.type" 
                 :data="note">
             </component>
-            <action-btns 
-                :data="note" 
-                @deleteNote="deleteNote" 
-                @editNote="editNote"
-                @opencolorPalette="opencolorPalette"> 
-            </action-btns>
-            <color-palette 
-                v-if="isOnColorPalette" 
-                :data="note" 
-                @pickedColor="updateNoteColor">
-            </color-palette>
-            <component v-if="isOnEdit"
-                :is="note.type + 'Edit'"
-                :data="note" 
-                @saveChanges="saveChanges(note, $event)"
-                @closeEditor="closeEditor">
-            </component>
+            <div class="action-btns-and-color-palette-and-edit-container flex column">
+                <action-btns 
+                    :data="note" 
+                    @deleteNote="deleteNote" 
+                    @editNote="editNote"
+                    @opencolorPalette="opencolorPalette"> 
+                </action-btns>
+                <color-palette 
+                    v-if="isOnColorPalette" 
+                    :data="note" 
+                    @pickedColor="updateNoteColor">
+                </color-palette>
+                <div class="edit-container">
+                    <component v-if="isOnEdit"
+                        :is="note.type + 'Edit'"
+                        :data="note" 
+                        @saveChanges="saveChanges(note, $event)"
+                        @closeEditor="closeEditor">
+                    </component>
+                </div>
+            </div>
         </div>
     </div>
     `,
@@ -74,7 +84,13 @@ export default {
                 this.note.style = color;
             }
             this.$emit('updateNoteColor', color);
-        }     
+        },
+        onPinButtonClick() {
+            this.$emit('notePinned');
+        },
+        onExpandClick() {
+            this.$emit('noteResize');
+        }   
     },
     components: {
         noteImg,

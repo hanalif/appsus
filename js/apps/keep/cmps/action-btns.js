@@ -1,10 +1,10 @@
 export default {
     props:['data'],
     template: `
-    <section class="action-btns">
-    <button  @click="deleteNote">🚮</button>
-    <button @click="editNote">📝</button>
-    <button @click="opencolorPalette">🎨</button>
+    <section class="action-btns flex content-center">
+    <button class="keep-app-btn" @click="deleteNote"><i class="far fa-trash-alt"></i></button>
+    <button class="keep-app-btn" @click="editNote"><i class="far fa-edit"></i></button>
+    <button class="keep-app-btn" @click="opencolorPalette"><i class="fas fa-palette"></i></button>
     </section>
     `,
     methods: {

@@ -56,7 +56,7 @@ function _createNotes() {
 
 
 function createNote(newNoteData) {
-    let note = { style: newNoteData.style, isPinned: false}
+    let note = { style: newNoteData.style, isPinned: false, createdAt: new Date()}
     switch (newNoteData.noteType) {
         case 'note-txt':
             note.type = 'noteTxt'

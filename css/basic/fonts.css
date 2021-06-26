@@ -3,6 +3,11 @@
     src: url(../fonts/ABeeZee-Italic.ttf);
 }
 
+@font-face {
+    font-family: abz-regular;
+    src: url(../fonts/ABeeZee-Regular.ttf);
+}
+
 body {
     font-family: abz-italic;
 }

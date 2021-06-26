@@ -1,11 +1,13 @@
 export default {
     props:['data'],
     template: `
-    <section class="note-txt-edit">
-        <input v-model="txtTitle" type="text" :placeholder="data.info.title">
-        <input v-model="freeTxt" type="text" :placeholder="data.info.freeTxt">
-        <button @click="saveChanges">✅</button>
-        <button @click="closeEditor">X</button>
+    <section class="note-txt-edit note-edit-container flex content-center align-center column">
+        <input class="note-edit-input" v-model="txtTitle" type="text" :placeholder="data.info.title">
+        <input class="note-edit-input" v-model="freeTxt" type="text" :placeholder="data.info.freeTxt">
+        <div class="note-edit-btns-container">
+            <button class="keep-app-btn" @click="saveChanges"><i class="fas fa-check"></i></button>
+            <button class="keep-app-btn" @click="closeEditor"><i class="fas fa-times"></i></button>
+        </div>
     </section>
     `,
     data(){

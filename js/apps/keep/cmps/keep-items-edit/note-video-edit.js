@@ -1,12 +1,14 @@
 export default {
     props:['data'],
     template: `
-    <section class="note-video-edit">
-        <input v-model="videoUrl" type="url" name="url" id="url"
+    <section class="note-video-edit note-edit-container flex content-center align-center column">
+        <input class="note-edit-input" v-model="videoUrl" type="url" name="url" id="url"
             :placeholder="data.info.url">
-        <input v-model="videoTitle" type="text" :placeholder="data.info.title">
-        <button @click="saveChanges">✅</button>
-        <button @click="closeEditor">X</button>
+        <input class="note-edit-input" v-model="videoTitle" type="text" :placeholder="data.info.title">
+        <div class="note-edit-btns-container">
+            <button class="keep-app-btn" @click="saveChanges"><i class="fas fa-check"></i></button>
+            <button class="keep-app-btn" @click="closeEditor"><i class="fas fa-times"></i></button>
+        </div>
     </section>
     `,
     data(){

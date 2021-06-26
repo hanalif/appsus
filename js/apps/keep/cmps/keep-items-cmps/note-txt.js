@@ -1,7 +1,7 @@
 export default {
     props:['data'],
     template: `
-    <section class="note-txt">
+    <section class="note-txt note-top-margin flex column">
     <h2>{{data.info.title}}</h2>
     <p>{{data.info.freeTxt}}</p>
     

@@ -8,5 +8,11 @@
 }
 
 .colors-container{
+    padding: 3px;
+    background-color: aliceblue;
+    border-radius: 4px;
+    box-shadow: rgb(111 105 105 / 34%) -1px 0px 5px 0px;
     gap: 5px;
+    width: fit-content;
+    margin: 0 auto;
 }
