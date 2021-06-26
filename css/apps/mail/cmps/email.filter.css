@@ -13,7 +13,9 @@
 }
 
 .filter-search-icon {
-    margin-top: 20px;
+    position: absolute;
+    top: 32px;
+    left: 20px;
 }
 
 .text-input:focus-visible {
