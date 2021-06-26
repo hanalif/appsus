@@ -3,6 +3,7 @@
     width: 100%;
     z-index: -1;
     position: relative;
+    font-family: abz-regular;
 }
 
 .home-page::before {
@@ -12,11 +13,10 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url('/img/computer-2982270_1920.jpg');
+    background-image: url('/img/desk-3076954_1920.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 0.6;
 }
 
 .home-page-container {
@@ -24,7 +24,6 @@
     font-size: 40px;
     color: rgb(56, 54, 54);
     text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5), -2px 3px 7px rgba(166, 169, 165, 0.41);
-    margin: 5px auto;
 }
 
 .home-page-txt-container {
@@ -33,9 +32,9 @@
 }
 
 .home-page-container h2 {
-    margin: 70px 0;
+    margin: 22px 0;
 }
 
 .home-page-container h3 {
-    margin: 70px 0;
+    margin: 31px 0;
 }

@@ -1,6 +1,24 @@
 .mail-app {
     color: black;
     margin: 0 50px;
+    padding-top: 20px
+}
+
+.mail-app .app-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.compose-status-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mail-status {
+    display: flex;
+    align-items: center;
 }
 
 @media (max-width: 850px) {
@@ -9,5 +27,9 @@
     }
     .app-container {
         flex-direction: column;
+    }
+    .compose-status-container {
+        flex-direction: row;
+        justify-content: center;
     }
 }
