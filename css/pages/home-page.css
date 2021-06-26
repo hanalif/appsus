@@ -38,3 +38,13 @@
 .home-page-container h3 {
     margin: 31px 0;
 }
+
+@media (max-width: 850px) {
+   .home-page-txt-container h2 {
+        font-size: 38px;
+   }
+
+   .home-page-txt-container h3 {
+    font-size: 29px;
+}
+}
