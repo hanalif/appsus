@@ -18,3 +18,17 @@
 .note-top-margin{
     margin-top: 1.25rem;
 }
+
+.notes-list-title{
+    font-family: abz-regular;
+    color: rgba(87, 87, 87, 0.76);
+}
+
+.pinned-notes-list-container{
+    margin-bottom: 50px;
+}
+
+.notes-list-title{
+   margin-bottom: 10px;
+    
+}

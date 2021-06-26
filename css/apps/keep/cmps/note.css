@@ -2,13 +2,37 @@
     position: relative;
 }
 
-.pin-btn{
+.note:hover .pin-btn {
     display: flex;
+}
+
+.pin-btn{
+    display: none;
     align-items: center;
     justify-content: center;
     position: absolute;
     top: 0.35em;
     right: 0.25em;
+    background-color: transparent;
+    border: none;
+    font-size: 1.25rem;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    color: #3b3c4096;
+}
+
+.note:hover .maximize-btn {
+    display: flex;
+}
+
+.maximize-btn{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0.35em;
+    right: 1.5em;
     background-color: transparent;
     border: none;
     font-size: 1.25rem;

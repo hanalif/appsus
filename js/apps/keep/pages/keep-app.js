@@ -2,6 +2,7 @@ import keepList from "../cmps/keep-list.js"
 import {keepService} from "../services/keep-service.js"
 import noteAdd from '../cmps/note-add.js';
 import notesFilter from "../cmps/keep-items-cmps/notes-filter.js";
+import note from "../cmps/note.js";
 
 export default {
     template: `
@@ -11,30 +12,42 @@ export default {
         <div class="note-add-container flex align-center">
             <note-add @createNote="createNote"></note-add>
         </div>
+        <div v-if="containsPinned" class="pinned-notes-list-container">
+            <h5 class="notes-list-title">PINNED</h5>
+            <keep-list 
+                @saveNoteChanges="saveNoteChanges" 
+                @deleteNote="deleteNote"
+                @updateNoteColor="saveNoteChanges" 
+                @notePinned="notePinned"
+                :notes="notesToShowForPinned">
+            </keep-list>
+        </div>
+       <div v-if="containsNonePinned" class="notes-list-container">
+            <h5 v-if="containsPinned" class="notes-list-title">OTHERS</h5>
+            <keep-list 
+                @saveNoteChanges="saveNoteChanges" 
+                @deleteNote="deleteNote"
+                @updateNoteColor="saveNoteChanges" 
+                @notePinned="notePinned"
+                :notes="notesToShowForNonePinned">
+        </keep-list>
+       </div>
         
-        <keep-list 
-            @saveNoteChanges="saveNoteChanges" 
-            @deleteNote="deleteNote"
-            @updateNoteColor="saveNoteChanges" 
-            @notePinned="notePinned"
-            :notes="notesToShowForPinned">
-        </keep-list>
-        <keep-list 
-            @saveNoteChanges="saveNoteChanges" 
-            @deleteNote="deleteNote"
-            @updateNoteColor="saveNoteChanges" 
-            @notePinned="notePinned"
-            :notes="notesToShowForNonePinned">
-        </keep-list>
     </section>
     `,
     data() {
         return {
-            notes: null,
-            filterBy: null
+            notes: [],
+            filterBy: null,
         }
     },
     computed: {
+        containsPinned(){
+            return this.notes.some(n=> n.isPinned === true);   
+        },
+        containsNonePinned(){
+            return this.notes.some(n=> n.isPinned === false);   
+        },
         notesToShow(){
             let notesToShow;
             if (!this.filterBy ||(this.filterBy.type === 'all' && this.filterBy.title === '') ) {
