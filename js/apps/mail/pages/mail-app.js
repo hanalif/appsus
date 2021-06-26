@@ -3,6 +3,7 @@ import { mailService } from '../services/mail-service.js';
 import mailFilter from '../cmps/mail-filter.js';
 import mailCompose from '../cmps/mail-compose.js';
 import mailMenu from '../cmps/mail-menu.js';
+import mailStatus from '../cmps/mail-status.js';
 
 { /* <mail-list :mails="mailsToShow"></mail-list> */ }
 
@@ -13,6 +14,7 @@ export default {
         <div class="app-container flex">
             <div class="app-actions">
                 <mail-compose @uptdate-mail="update"></mail-compose>
+                <mail-status :mails="mails" class="mail-status"></mail-status>
                 <mail-menu class="flex column" />
             </div>
             <router-view ></router-view>
@@ -54,6 +56,7 @@ export default {
         mailFilter,
         mailCompose,
         mailMenu,
+        mailStatus
     },
     created() {
         mailService.query()
