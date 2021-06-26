@@ -32,7 +32,7 @@ export default {
         if (mailId) {
             mailService.getById(mailId)
                 .then(mail => {
-                    this.newMail.subject = mail.subject
+                    this.newMail.subject = 'Re;  ' + mail.subject
                     this.newMail.body = mail.body
                     this.newMail.id = mail.id
                 });

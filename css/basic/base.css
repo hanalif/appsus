@@ -11,7 +11,7 @@ div {
     padding: 0;
 }
 
-.main-screen{
+.main-screen {
     min-height: 82vh;
 }
 
@@ -31,7 +31,6 @@ a:hover {
 * {
     box-sizing: border-box;
 }
-
 
 .main-layout {
     max-width: 80%;

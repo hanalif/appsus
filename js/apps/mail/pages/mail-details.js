@@ -12,7 +12,7 @@ export default {
     <router-link to="/mail" ><button class="details-btns back-btn" title="back to inbox">⬅</button></router-link>
     <button @click="setStared" title="star mail" class="details-btns">{{star}}</button>
     <router-link to="/mail" ><i title="delete mail" @click="remove" class="fa fa-trash details-btns" aria-hidden="true"></i></router-link>
-    <i title="edit mail" @click="edit = true" class="far fa-edit details-btns"></i>
+    <i title="edit mail" @click="edit = true" class="fas fa-reply details-btns"></i>
     <mail-compose v-if="edit"></mail-compose>
     </div>
     <div class="actions-right">

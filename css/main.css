@@ -19,6 +19,7 @@
 @import './basic/helpers.css';
 
 /* pages */
+
 @import './pages/home-page.css';
 
 /* keep */
@@ -55,4 +56,8 @@
 
 /* mail filter */
 
-@import './apps/mail/cmps/email.filter.css'
+@import './apps/mail/cmps/email.filter.css';
+
+/* mail status */
+
+@import './apps/mail/cmps/mail-status.css'

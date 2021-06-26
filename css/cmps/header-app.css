@@ -1,7 +1,46 @@
 .header-app {
-    background-color: lightblue;
+    background-color: rgba(43, 108, 129, 0.479);
 }
 
 .header-nav {
     gap: 15px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(56, 54, 54);
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5), -2px 3px 7px rgba(166, 169, 165, 0.41);
+}
+
+.apps {
+    width: 200px;
+    border: 3px solid gray;
+    background-color: white;
+    position: fixed;
+    top: 100px;
+    right: 70px;
+    z-index: 2;
+    border-radius: 10px;
+}
+
+.menu-icon {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.unactive {
+    opacity: 0.5;
+}
+
+.apps-icons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fa-bars {
+    cursor: pointer;
+    font-size: 50px;
+    color: rgb(56, 54, 54);
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5), -2px 3px 7px rgba(166, 169, 165, 0.41);
 }
