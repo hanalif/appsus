@@ -57,7 +57,6 @@ export default {
         sendMail() {
             mailService.save(this.newMail)
                 .then(() => {
-                    console.log('~ this.newMail', this.newMail)
                     this.$emit('uptdate-mail')
                     this.mailBox = false
                     this.newMail.subject = ''
